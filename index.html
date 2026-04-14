@@ -142,6 +142,15 @@ body{
 .card-desc{font-size:13.5px;color:var(--text-light);line-height:1.55}
 .card-desc a{color:var(--blue-light);text-decoration:none;font-weight:500}
 .card-desc a:hover{text-decoration:underline}
+.card-link{
+  display:inline-flex;align-items:center;gap:4px;
+  margin-top:8px;padding:6px 14px;border-radius:8px;
+  background:var(--blue);color:var(--white);
+  font-size:12px;font-weight:600;text-decoration:none;
+  transition:var(--transition);
+}
+.card-link:active{transform:scale(.96)}
+.card-link.secondary{background:var(--sand);color:var(--blue)}
 
 /* EXPANDABLE */
 .expand-toggle{
@@ -393,7 +402,9 @@ body{
       <div class="card-emoji">&#9992;&#65039;</div>
       <div class="card-body">
         <div class="card-title">PMI &rarr; Cala d'Or</div>
-        <div class="card-desc">Chegam 14h. Pegam carro, 50 min at&eacute; o hotel. Check-in ~15h30.</div>
+        <div class="card-desc">Chegam 14h. Pegam carro, 50 min at&eacute; o hotel. Check-in ~15h30.<br>
+        <a class="card-link" href="https://www.equespetitresort.com/en/" target="_blank">Eques Petit Resort &rarr;</a>
+        <a class="card-link secondary" href="https://www.discovercars.com" target="_blank">Aluguel carro</a></div>
       </div>
     </div>
   </div>
@@ -413,7 +424,8 @@ body{
       <div class="card-emoji">&#127863;</div>
       <div class="card-body">
         <div class="card-title">Jantar na Marina</div>
-        <div class="card-desc">Marina de Cala d'Or, 10 min a p&eacute;. <strong>Port Petit</strong> (Michelin Guide) se quiserem algo especial.</div>
+        <div class="card-desc">Marina de Cala d'Or, 10 min a p&eacute;. <strong>Port Petit</strong> (Michelin Guide) se quiserem algo especial.<br>
+        <a class="card-link" href="https://www.portpetit.com" target="_blank">Port Petit &rarr;</a></div>
       </div>
     </div>
   </div>
@@ -467,7 +479,10 @@ body{
       <div class="card-emoji">&#9973;</div>
       <div class="card-body">
         <div class="card-title">Dia inteiro de barco <span class="card-tag">Sa&iacute;da ~10h</span></div>
-        <div class="card-desc">Saem ~10h da Marina de Cala d'Or. Navegam pela costa, parando em calas acess&iacute;veis s&oacute; por mar &mdash; Cala Mitjana, Cala Sa Nau, Cala Mondrag&oacute;. Snorkel, SUP, mergulho. Almo&ccedil;o e drinks a bordo. Voltam ~17h&ndash;18h.</div>
+        <div class="card-desc">Saem ~10h da Marina de Cala d'Or. Navegam pela costa, parando em calas acess&iacute;veis s&oacute; por mar &mdash; Cala Mitjana, Cala Sa Nau, Cala Mondrag&oacute;. Snorkel, SUP, mergulho. Almo&ccedil;o e drinks a bordo. Voltam ~17h&ndash;18h.<br>
+        <a class="card-link" href="https://vita-bel.com" target="_blank">Vita Bel &rarr;</a>
+        <a class="card-link secondary" href="https://dorboats.com/en/" target="_blank">DOR Boats</a>
+        <a class="card-link secondary" href="https://www.hakunamatata-boatcharter.com/" target="_blank">Hakuna Matata</a></div>
       </div>
     </div>
   </div>
@@ -557,7 +572,8 @@ body{
       <div class="card-emoji">&#127865;</div>
       <div class="card-body">
         <div class="card-title">Gran Folies Beach Club <span class="card-tag">Reserve!</span></div>
-        <div class="card-desc">Saiam ~10h de Cala d'Or. Chegam ~11h15. Piscina nas rochas da Cala Llamp, DJ, gastronomia top, Bali beds. Almocem l&aacute;. Fiquem at&eacute; ~16h30. O beach club mais exclusivo de Mallorca.</div>
+        <div class="card-desc">Saiam ~10h de Cala d'Or. Chegam ~11h15. Piscina nas rochas da Cala Llamp, DJ, gastronomia top, Bali beds. Almocem l&aacute;. Fiquem at&eacute; ~16h30. O beach club mais exclusivo de Mallorca.<br>
+        <a class="card-link" href="https://beachclubgranfolies.com" target="_blank">Reservar Gran Folies &rarr;</a></div>
       </div>
     </div>
   </div>
@@ -567,7 +583,8 @@ body{
       <div class="card-emoji">&#9962;</div>
       <div class="card-body">
         <div class="card-title">Palma &mdash; Catedral + La Lonja</div>
-        <div class="card-desc">30 min do Gran Folies. Check-in hotel. Catedral ~17h30, luz perfeita. Bairro La Lonja &mdash; ruas medievais. <strong>Sky Bar El Lloren&ccedil;</strong> (rooftop com vista da catedral).</div>
+        <div class="card-desc">30 min do Gran Folies. Check-in hotel. Catedral ~17h30, luz perfeita. Bairro La Lonja &mdash; ruas medievais. <strong>Sky Bar El Lloren&ccedil;</strong> (rooftop com vista da catedral).<br>
+        <a class="card-link secondary" href="https://www.booking.com/hotel/es/brondo-architect.html" target="_blank">Check-in Brondo &rarr;</a></div>
       </div>
     </div>
   </div>
@@ -670,7 +687,8 @@ body{
       <div class="card-emoji">&#127864;</div>
       <div class="card-body">
         <div class="card-title">Pine Walk &mdash; Jantar</div>
-        <div class="card-desc">Cal&ccedil;ad&atilde;o beira-mar de Port de Pollen&ccedil;a. Restaurantes, bares, montanhas ao fundo.</div>
+        <div class="card-desc">Cal&ccedil;ad&atilde;o beira-mar de Port de Pollen&ccedil;a. Restaurantes, bares, montanhas ao fundo.<br>
+        <a class="card-link secondary" href="https://www.booking.com/hotel/es/la-goleta-de-mar-adults-only.html" target="_blank">Check-in La Goleta &rarr;</a></div>
       </div>
     </div>
   </div>
@@ -848,6 +866,10 @@ body{
 
   <div class="budget-card">
     <div class="budget-row">
+      <span class="budget-label">&#9992;&#65039; Passagens a&eacute;reas (casal)</span>
+      <span class="budget-value">R$14.600</span>
+    </div>
+    <div class="budget-row">
       <span class="budget-label">&#127976; Hot&eacute;is (4 noites)</span>
       <span class="budget-value">&euro;450&ndash;650</span>
     </div>
@@ -868,10 +890,10 @@ body{
       <span class="budget-value">&euro;500&ndash;800</span>
     </div>
     <div class="budget-total">
-      <span class="budget-label">Total (casal)</span>
-      <span class="budget-value">&euro;1.300&ndash;2.100</span>
+      <span class="budget-label">Total estimado (casal)</span>
+      <span class="budget-value">R$22.000&ndash;28.000</span>
     </div>
-    <div class="budget-note">~R$7.500&ndash;12.000 por pessoa com voo</div>
+    <div class="budget-note">Passagens R$7.300/pessoa &bull; Gastos locais ~&euro;1.260&ndash;2.080 (&times;6.3 &cong; R$8.000&ndash;13.000)</div>
   </div>
 
   <!-- TIPS -->
