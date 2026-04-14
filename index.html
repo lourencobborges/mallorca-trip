@@ -195,12 +195,13 @@ img{display:block;width:100%;object-fit:cover}
     <!-- BUDGET -->
     <div class="budget-card">
       <h3>&#128176; Or&#231;amento por pessoa</h3>
-      <div class="budget-row"><span>Voo (ida+volta)</span><span class="val">R$ 7.300</span></div>
-      <div class="budget-row"><span>Hot&#233;is (4 noites)</span><span class="val">EUR 225&#8211;325</span></div>
-      <div class="budget-row"><span>Carro aluguel</span><span class="val">EUR 50&#8211;75</span></div>
-      <div class="budget-row"><span>Barco</span><span class="val">EUR 75&#8211;200</span></div>
-      <div class="budget-row"><span>Alimenta&#231;&#227;o</span><span class="val">EUR 250&#8211;400</span></div>
-      <div class="budget-row"><span>Total estimado</span><span class="val">R$ 11k&#8211;14k</span></div>
+      <div class="budget-row"><span>&#9992;&#65039; Passagens a&#233;reas</span><span class="val">R$ 7.300</span></div>
+      <div class="budget-row"><span>&#127976; Hot&#233;is (4 noites)</span><span class="val">R$ 2.500&#8211;4.000</span></div>
+      <div class="budget-row"><span>&#128663; Carro + gasolina</span><span class="val">R$ 800&#8211;1.200</span></div>
+      <div class="budget-row"><span>&#9973; Barco + beach club</span><span class="val">R$ 1.000&#8211;2.500</span></div>
+      <div class="budget-row"><span>&#127860; Alimenta&#231;&#227;o + drinks</span><span class="val">R$ 2.500&#8211;4.000</span></div>
+      <div class="budget-row"><span>&#127775; Noite + extras</span><span class="val">R$ 500&#8211;1.500</span></div>
+      <div class="budget-row"><span>Total estimado</span><span class="val">R$ 15k&#8211;20k</span></div>
     </div>
 
     <!-- TIPS -->
@@ -332,8 +333,8 @@ img{display:block;width:100%;object-fit:cover}
     <div class="day-header"><img src="img/turq1.jpg" alt="Last morning"><div class="day-header-txt"><span class="tag tag-d5">Dom, 8 Jun</span><h2>Manh&#227; livre &amp; Volta</h2><p>Port de Pollen&#231;a &#8594; PMI</p></div></div>
     <div class="timeline">
       <div class="tl-item"><div class="tl-dot" style="background:var(--d5)"></div><div class="tl-line"><div class="tl-time">08:00</div><div class="tl-title">Manh&#227; em Port de Pollen&#231;a</div><div class="tl-desc">Caf&#233; da manh&#227; tranquilo. &#218;ltima caminhada pelo Pine Walk. Fotos de despedida.</div></div></div>
-      <div class="tl-item"><div class="tl-dot" style="background:var(--d5)"></div><div class="tl-line"><div class="tl-time">10:00</div><div class="tl-title">Check-out &amp; Drive para PMI</div><div class="tl-desc">50 min at&#233; o aeroporto. Devolver carro e check-in.</div></div></div>
-      <div class="tl-item"><div class="tl-dot" style="background:var(--d5)"></div><div class="tl-line"><div class="tl-time">12:00+</div><div class="tl-title">Voo de volta &#9992;&#65039;</div><div class="tl-desc">At&#233; a pr&#243;xima, Mallorca!</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="background:var(--d5)"></div><div class="tl-line"><div class="tl-time">10:00</div><div class="tl-title">Alc&#250;dia (opcional, no caminho)</div><div class="tl-desc">Cidade murada romana, 20 min de Pollen&#231;a. Vale uma parada r&#225;pida de 30 min pra caminhar pelas muralhas.</div></div></div>
+      <div class="tl-item"><div class="tl-dot" style="background:var(--d5)"></div><div class="tl-line"><div class="tl-time">11:00</div><div class="tl-title">Drive para PMI &#9992;&#65039;</div><div class="tl-desc">40 min de Alc&#250;dia at&#233; o aeroporto (ou 50 min direto de Pollen&#231;a). Devolver carro com folga.</div></div></div>
     </div>
     <div class="section-pad">
       <h3 style="font-size:15px;font-weight:700;margin-bottom:12px">&#127890; O que levar</h3>
@@ -550,7 +551,8 @@ var POIS = [
   { name:'Cala Formentor', lat:39.9333, lng:3.1333, day:4, img:'img/pine_beach.jpg', desc:'Praia + pinheiros' },
   { name:'Mirador Es Colomer', lat:39.955, lng:3.163, day:4, img:'img/mt_road.jpg', desc:'Vista 360\u00b0' },
   { name:'Port de Pollen\u00e7a', lat:39.9057, lng:3.0833, day:4, img:'img/pine_beach.jpg', desc:'Hotel + Pine Walk' },
-  { name:'Alc\u00fadia', lat:39.853, lng:3.121, day:5, img:'img/turq1.jpg', desc:'Cidade hist\u00f3rica' }
+  { name:'Alc\u00fadia', lat:39.853, lng:3.121, day:5, img:'img/turq1.jpg', desc:'Cidade murada romana \u2014 no caminho do aeroporto' },
+  { name:'PMI Aeroporto (volta)', lat:39.5517, lng:2.7388, day:5, img:'img/marina.jpg', desc:'Devolver carro e embarcar' }
 ];
 
 var ROUTE = [
@@ -561,10 +563,19 @@ var ROUTE = [
   [39.9057,3.0833],
   [39.9333,3.1333],
   [39.9057,3.0833],
+  [39.853,3.121],
   [39.5517,2.7388]
 ];
 
-var map, markers = [], routeLine;
+var DAY_ROUTES = {
+  1: [[39.5517,2.7388],[39.3725,3.2310]],
+  2: [[39.3725,3.2310],[39.352,3.188],[39.331,3.167],[39.335,3.118],[39.3725,3.2310]],
+  3: [[39.3725,3.2310],[39.534,2.386],[39.5673,2.6489],[39.575,2.642]],
+  4: [[39.5673,2.6489],[39.7106,2.6233],[39.9057,3.0833],[39.9333,3.1333],[39.9057,3.0833]],
+  5: [[39.9057,3.0833],[39.853,3.121],[39.5517,2.7388]]
+};
+
+var map, markers = [], routeLine, dayRouteLine;
 
 function initMap() {
   map = L.map('map', { zoomControl: false }).setView([39.65, 2.95], 9);
@@ -616,13 +627,20 @@ function initMap() {
         if (f === 'all' || m._day == f) { m.addTo(map); }
         else { map.removeLayer(m); }
       });
+      // Show day-specific route
+      if (dayRouteLine) { map.removeLayer(dayRouteLine); dayRouteLine = null; }
       if (f !== 'all') {
+        routeLine.setStyle({ opacity: 0.15 });
+        if (DAY_ROUTES[f]) {
+          dayRouteLine = L.polyline(DAY_ROUTES[f], { color: COLORS[f], weight: 4, opacity: 0.8 }).addTo(map);
+        }
         var filtered = markers.filter(function(m) { return m._day == f; });
         if (filtered.length) {
           var group = L.featureGroup(filtered);
           map.fitBounds(group.getBounds().pad(0.3));
         }
       } else {
+        routeLine.setStyle({ opacity: 0.5 });
         map.fitBounds(routeLine.getBounds().pad(0.1));
       }
     });
