@@ -32,19 +32,18 @@ body{
 
 /* ===== HERO ===== */
 .hero{
-  position:relative;min-height:420px;
+  position:relative;min-height:440px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:60px 24px 30px;color:var(--white);
-  overflow:hidden;
+  text-align:center;padding:60px 24px 30px;color:var(--white);overflow:hidden;
 }
 .hero-bg{
   position:absolute;inset:0;
-  background:url('https://images.unsplash.com/photo-1578922746465-1836c4dd97fa?w=1200&q=80') center/cover no-repeat;
+  background:url('https://images.unsplash.com/photo-1591970175608-2f6e48edb41e?w=1400&q=85') center 40%/cover no-repeat;
   transform:scale(1.1);will-change:transform;
 }
 .hero-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(12,45,72,.7) 0%,rgba(26,82,118,.6) 50%,rgba(12,45,72,.85) 100%);
+  background:linear-gradient(180deg,rgba(12,45,72,.65) 0%,rgba(26,82,118,.5) 50%,rgba(12,45,72,.8) 100%);
 }
 .hero-content{position:relative;z-index:2}
 .hero-label{
@@ -56,27 +55,20 @@ body{
   font-weight:700;line-height:1.1;margin-bottom:8px;
 }
 .hero h1 em{font-style:italic;color:var(--gold)}
-.hero-sub{font-size:15px;color:rgba(255,255,255,.75);font-weight:300;margin-bottom:18px}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.65);font-weight:300;margin-bottom:18px;max-width:320px}
 .hero-dates{
   display:inline-flex;align-items:center;gap:8px;
   padding:8px 20px;background:rgba(255,255,255,.12);
   border-radius:30px;font-size:13px;font-weight:500;
-  backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.15);
-  margin-bottom:20px;
+  backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.15);margin-bottom:20px;
 }
-
-/* COUNTDOWN */
-.countdown{
-  display:flex;gap:16px;justify-content:center;margin-top:4px;
-}
+.countdown{display:flex;gap:16px;justify-content:center;margin-top:4px}
 .cd-block{text-align:center}
 .cd-num{
   font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.2rem);
   font-weight:700;color:var(--gold);line-height:1;
 }
 .cd-label{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:4px}
-
-/* SHARE BTN */
 .share-btn{
   position:absolute;top:16px;right:16px;z-index:10;
   background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);
@@ -89,42 +81,32 @@ body{
   position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);
   background:var(--blue-deep);color:var(--white);padding:12px 24px;
   border-radius:12px;font-size:13px;font-weight:500;z-index:999;
-  opacity:0;pointer-events:none;transition:all .3s ease;
-  box-shadow:0 8px 30px rgba(0,0,0,.25);
+  opacity:0;pointer-events:none;transition:all .3s ease;box-shadow:0 8px 30px rgba(0,0,0,.25);
 }
 .share-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 /* ===== NAV ===== */
 .nav-wrap{
-  position:sticky;top:0;z-index:100;
-  background:var(--white);
-  border-bottom:1px solid rgba(0,0,0,.06);
-  box-shadow:0 2px 12px rgba(0,0,0,.04);
+  position:sticky;top:0;z-index:100;background:var(--white);
+  border-bottom:1px solid rgba(0,0,0,.06);box-shadow:0 2px 12px rgba(0,0,0,.04);
 }
 .nav-tabs{
   display:flex;overflow-x:auto;scrollbar-width:none;
-  -webkit-overflow-scrolling:touch;
-  max-width:640px;margin:0 auto;
+  -webkit-overflow-scrolling:touch;max-width:640px;margin:0 auto;
 }
 .nav-tabs::-webkit-scrollbar{display:none}
 .nav-tab{
   flex:0 0 auto;padding:14px 14px;font-size:13px;font-weight:500;
   color:var(--text-light);cursor:pointer;white-space:nowrap;
-  border-bottom:2.5px solid transparent;
-  transition:var(--transition);position:relative;
-  background:none;border-top:none;border-left:none;border-right:none;
-  font-family:inherit;
+  border-bottom:2.5px solid transparent;transition:var(--transition);
+  background:none;border-top:none;border-left:none;border-right:none;font-family:inherit;
 }
 .nav-tab.active{color:var(--blue);border-bottom-color:var(--blue);font-weight:600}
 .nav-tab .tab-emoji{margin-right:4px}
 
 /* ===== PAGES ===== */
 .content{max-width:600px;margin:0 auto;padding:0 16px}
-.pages-container{position:relative;overflow:hidden}
-.page{
-  display:none;padding:20px 0 40px;
-  animation:slideIn .4s cubic-bezier(.4,0,.2,1);
-}
+.page{display:none;padding:20px 0 40px;animation:slideIn .4s cubic-bezier(.4,0,.2,1)}
 .page.active{display:block}
 .page.slide-left{animation:slideLeft .4s cubic-bezier(.4,0,.2,1)}
 .page.slide-right{animation:slideRight .4s cubic-bezier(.4,0,.2,1)}
@@ -134,14 +116,8 @@ body{
 
 /* ===== DAY HEADER ===== */
 .day-header{margin-bottom:20px}
-.day-num{
-  font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;
-  color:var(--gold);margin-bottom:4px;
-}
-.day-title{
-  font-family:'Playfair Display',serif;font-size:1.65rem;
-  font-weight:700;color:var(--blue);line-height:1.2;margin-bottom:4px;
-}
+.day-num{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.day-title{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:700;color:var(--blue);line-height:1.2;margin-bottom:4px}
 .day-meta{font-size:13px;color:var(--text-muted)}
 .day-meta .dorme{
   display:inline-flex;align-items:center;gap:4px;
@@ -156,12 +132,18 @@ body{
 }
 .section-label::after{content:'';flex:1;height:1px;background:var(--sand-dark)}
 
+/* ===== PHOTO BANNER ===== */
+.photo-banner{
+  width:100%;height:180px;border-radius:var(--radius);
+  object-fit:cover;display:block;margin-bottom:12px;
+  box-shadow:var(--shadow);
+}
+
 /* ===== CARDS ===== */
 .card{
   background:var(--card);border-radius:var(--radius);
   padding:16px;margin-bottom:10px;
-  box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);
-  transition:var(--transition);
+  box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);transition:var(--transition);
 }
 .card:active{transform:scale(.985)}
 .card-row{display:flex;gap:12px;align-items:flex-start}
@@ -180,14 +162,17 @@ body{
 .card-desc{font-size:13.5px;color:var(--text-light);line-height:1.55}
 .card-desc a{color:var(--blue-light);text-decoration:none;font-weight:500}
 .card-link{
-  display:inline-flex;align-items:center;gap:4px;
-  margin-top:8px;padding:6px 14px;border-radius:8px;
-  background:var(--blue);color:var(--white);
-  font-size:12px;font-weight:600;text-decoration:none;
-  transition:var(--transition);
+  display:inline-flex;align-items:center;gap:4px;margin-top:8px;padding:6px 14px;
+  border-radius:8px;background:var(--blue);color:var(--white);
+  font-size:12px;font-weight:600;text-decoration:none;transition:var(--transition);
 }
 .card-link:active{transform:scale(.96)}
 .card-link.secondary{background:var(--sand);color:var(--blue)}
+
+/* Card with image */
+.card-with-img{padding:0;overflow:hidden}
+.card-with-img .card-img{width:100%;height:140px;object-fit:cover;display:block}
+.card-with-img .card-inner{padding:16px}
 
 /* ===== EXPANDABLE ===== */
 .expand-toggle{
@@ -206,20 +191,16 @@ body{
 }
 .expand-title{font-weight:600;font-size:15px;color:var(--text)}
 .expand-sub{font-size:12px;color:var(--text-muted)}
-.expand-arrow{
-  font-size:18px;color:var(--text-muted);transition:transform .3s ease;flex-shrink:0;
-}
+.expand-arrow{font-size:18px;color:var(--text-muted);transition:transform .3s ease;flex-shrink:0}
 .expand-toggle.open .expand-arrow{transform:rotate(180deg)}
 .expand-content{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
 .expand-content.open{max-height:3000px}
 .expand-inner{padding:0 16px 16px}
-.opt-card{
-  background:var(--sand);border-radius:var(--radius-sm);
-  padding:14px;margin-bottom:8px;
-}
+.opt-card{background:var(--sand);border-radius:var(--radius-sm);padding:14px;margin-bottom:8px}
 .opt-card h4{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px}
 .opt-card p{font-size:13px;color:var(--text-light);line-height:1.5}
 .opt-card a{color:var(--blue-light);text-decoration:none;font-weight:500}
+.opt-card-img{width:100%;height:100px;object-fit:cover;border-radius:8px;margin-bottom:8px}
 
 /* ===== TRANSFER ===== */
 .transfer{
@@ -232,9 +213,7 @@ body{
 .transfer-text strong{font-weight:600}
 
 /* ===== BOAT COMPARISON ===== */
-.boat-compare{
-  display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:12px;
-}
+.boat-compare{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:12px}
 @media(min-width:520px){.boat-compare{grid-template-columns:repeat(3,1fr)}}
 .boat-card{
   background:var(--card);border-radius:var(--radius);padding:18px;
@@ -268,14 +247,13 @@ body{
 /* ===== ROUTE MAP ===== */
 .route-map{
   background:var(--card);border-radius:var(--radius);
-  padding:20px 16px;margin-bottom:16px;box-shadow:var(--shadow);
-  border:1px solid rgba(0,0,0,.04);
+  padding:20px 12px;margin-bottom:16px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);
 }
 .route-map h3{
   font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;
   color:var(--blue);margin-bottom:12px;text-align:center;
 }
-.route-svg{width:100%;max-width:500px;margin:0 auto;display:block}
+.route-svg{width:100%;max-width:480px;margin:0 auto;display:block}
 
 /* ===== WEATHER ===== */
 .weather-bar{
@@ -309,55 +287,35 @@ body{
 /* ===== HOTEL CARDS ===== */
 .hotel-card{
   background:var(--card);border-radius:var(--radius);
-  margin-bottom:14px;box-shadow:var(--shadow);
-  border:1px solid rgba(0,0,0,.04);overflow:hidden;
+  margin-bottom:14px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);overflow:hidden;
 }
 .hotel-card.primary{border-left:4px solid var(--gold)}
 .hotel-card.alt{border-left:4px solid var(--text-muted)}
-.hotel-img{
-  width:100%;height:160px;object-fit:cover;display:block;
-}
+.hotel-img{width:100%;height:180px;object-fit:cover;display:block}
 .hotel-body{padding:18px}
-.hotel-badge{
-  font-size:10px;font-weight:600;letter-spacing:1px;
-  text-transform:uppercase;margin-bottom:8px;display:inline-block;
-}
+.hotel-badge{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;display:inline-block}
 .hotel-card.primary .hotel-badge{color:var(--gold)}
 .hotel-card.alt .hotel-badge{color:var(--text-muted)}
-.hotel-name{
-  font-family:'Playfair Display',serif;font-size:1.15rem;
-  font-weight:700;color:var(--blue);margin-bottom:2px;
-}
+.hotel-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--blue);margin-bottom:2px}
 .hotel-stars{color:var(--gold);font-size:13px;margin-bottom:8px}
 .hotel-detail{font-size:13px;color:var(--text-light);margin-bottom:4px;line-height:1.5}
-.hotel-ratings{
-  display:flex;gap:8px;flex-wrap:wrap;margin:10px 0;
-}
-.hotel-rating{
-  display:inline-flex;align-items:center;gap:4px;
-  padding:4px 10px;border-radius:8px;font-size:11px;font-weight:600;
-}
+.hotel-ratings{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.hotel-rating{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:8px;font-size:11px;font-weight:600}
 .hotel-rating.high{background:var(--green-light);color:var(--green)}
 .hotel-rating.mid{background:var(--blue-pale);color:var(--blue)}
-.hotel-quote{
-  font-size:12px;color:var(--text-muted);font-style:italic;
-  border-left:3px solid var(--gold-light);padding-left:10px;margin:10px 0;
-}
+.hotel-quote{font-size:12px;color:var(--text-muted);font-style:italic;border-left:3px solid var(--gold-light);padding-left:10px;margin:10px 0}
 .hotel-price{font-size:15px;font-weight:600;color:var(--text);margin:10px 0}
 .hotel-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 .hotel-link{
-  display:inline-flex;align-items:center;gap:4px;
-  padding:8px 16px;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;
-  transition:var(--transition);
+  display:inline-flex;align-items:center;gap:4px;padding:8px 16px;border-radius:8px;
+  font-size:12px;font-weight:600;text-decoration:none;transition:var(--transition);
 }
 .hotel-link.primary-link{background:var(--blue);color:var(--white)}
 .hotel-link.secondary-link{background:var(--sand);color:var(--text)}
 .hotel-link:active{transform:scale(.96)}
-
 .hotel-location{
-  font-family:'Playfair Display',serif;font-size:1.1rem;
-  color:var(--text);font-weight:600;margin:28px 0 4px;
-  display:flex;align-items:center;gap:8px;
+  font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--text);font-weight:600;
+  margin:28px 0 4px;display:flex;align-items:center;gap:8px;
 }
 .hotel-location:first-child{margin-top:0}
 .hotel-nights{font-size:12px;color:var(--text-muted);margin-bottom:14px}
@@ -372,122 +330,54 @@ body{
 }
 .check-item:active{transform:scale(.985)}
 .check-box{
-  width:24px;height:24px;border-radius:8px;
-  border:2px solid var(--blue-pale);flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
-  transition:var(--transition);position:relative;
+  width:24px;height:24px;border-radius:8px;border:2px solid var(--blue-pale);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;transition:var(--transition);
 }
-.check-item.checked .check-box{
-  background:var(--green);border-color:var(--green);
-  animation:checkPop .4s cubic-bezier(.4,0,.2,1);
-}
-@keyframes checkPop{
-  0%{transform:scale(1)}
-  30%{transform:scale(1.3)}
-  60%{transform:scale(.9)}
-  100%{transform:scale(1)}
-}
+.check-item.checked .check-box{background:var(--green);border-color:var(--green);animation:checkPop .4s cubic-bezier(.4,0,.2,1)}
+@keyframes checkPop{0%{transform:scale(1)}30%{transform:scale(1.3)}60%{transform:scale(.9)}100%{transform:scale(1)}}
 .check-box svg{width:14px;height:14px;opacity:0;transition:var(--transition)}
 .check-item.checked .check-box svg{opacity:1}
 .check-label{font-size:14px;font-weight:500;color:var(--text);flex:1;transition:var(--transition)}
 .check-item.checked .check-label{color:var(--text-muted);text-decoration:line-through}
-.check-link{
-  font-size:12px;color:var(--blue-light);text-decoration:none;font-weight:500;flex-shrink:0;
-}
-
-.check-progress{
-  background:var(--sand-dark);border-radius:20px;height:6px;margin-bottom:20px;overflow:hidden;
-}
-.check-progress-bar{
-  height:100%;background:linear-gradient(90deg,var(--green),#2ecc71);
-  border-radius:20px;transition:width .5s cubic-bezier(.4,0,.2,1);
-}
+.check-link{font-size:12px;color:var(--blue-light);text-decoration:none;font-weight:500;flex-shrink:0}
+.check-progress{background:var(--sand-dark);border-radius:20px;height:6px;margin-bottom:20px;overflow:hidden}
+.check-progress-bar{height:100%;background:linear-gradient(90deg,var(--green),#2ecc71);border-radius:20px;transition:width .5s cubic-bezier(.4,0,.2,1)}
 .check-progress-text{font-size:12px;color:var(--text-muted);margin-bottom:8px;text-align:right;font-weight:500}
 
 /* ===== CONFETTI ===== */
-.confetti-container{
-  position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;
-}
-.confetti-piece{
-  position:absolute;width:8px;height:8px;border-radius:2px;
-  animation:confettiFall 1.2s cubic-bezier(.25,.46,.45,.94) forwards;
-}
-@keyframes confettiFall{
-  0%{opacity:1;transform:translateY(0) rotate(0deg) scale(1)}
-  100%{opacity:0;transform:translateY(400px) rotate(720deg) scale(0.3)}
-}
+.confetti-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999}
+.confetti-piece{position:absolute;width:8px;height:8px;border-radius:2px;animation:confettiFall 1.2s cubic-bezier(.25,.46,.45,.94) forwards}
+@keyframes confettiFall{0%{opacity:1;transform:translateY(0) rotate(0deg) scale(1)}100%{opacity:0;transform:translateY(400px) rotate(720deg) scale(.3)}}
 
 /* ===== BUDGET ===== */
-.budget-card{
-  background:var(--card);border-radius:var(--radius);
-  padding:20px;margin-bottom:14px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);
-}
-.budget-row{
-  display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:14px;
-}
+.budget-card{background:var(--card);border-radius:var(--radius);padding:20px;margin-bottom:14px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04)}
+.budget-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:14px}
 .budget-row:not(:last-child){border-bottom:1px solid var(--sand-dark)}
 .budget-label{color:var(--text-light);display:flex;align-items:center;gap:8px}
 .budget-value{font-weight:600;color:var(--text)}
-.budget-total{
-  margin-top:12px;padding-top:12px;border-top:2px solid var(--sand-dark);
-  display:flex;justify-content:space-between;align-items:center;
-}
+.budget-total{margin-top:12px;padding-top:12px;border-top:2px solid var(--sand-dark);display:flex;justify-content:space-between;align-items:center}
 .budget-total .budget-label{font-weight:600;color:var(--text);font-size:15px}
 .budget-total .budget-value{font-size:17px;font-weight:700;color:var(--blue)}
 .budget-note{font-size:12px;color:var(--text-muted);margin-top:10px;text-align:center;font-style:italic}
 
 /* ===== TIPS ===== */
-.tip-card{
-  display:flex;gap:12px;align-items:flex-start;
-  background:var(--card);border-radius:var(--radius-sm);
-  padding:14px;margin-bottom:8px;box-shadow:0 1px 6px rgba(0,0,0,.04);
-}
+.tip-card{display:flex;gap:12px;align-items:flex-start;background:var(--card);border-radius:var(--radius-sm);padding:14px;margin-bottom:8px;box-shadow:0 1px 6px rgba(0,0,0,.04)}
 .tip-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
 .tip-text{font-size:13.5px;color:var(--text-light);line-height:1.5}
 
-/* ===== PACKING LIST ===== */
-.packing-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:8px;
-}
-.pack-item{
-  display:flex;align-items:center;gap:8px;
-  background:var(--sand);border-radius:var(--radius-sm);
-  padding:10px 12px;font-size:13px;color:var(--text-light);
-}
+/* ===== PACKING ===== */
+.packing-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pack-item{display:flex;align-items:center;gap:8px;background:var(--sand);border-radius:var(--radius-sm);padding:10px 12px;font-size:13px;color:var(--text-light)}
 .pack-item span:first-child{font-size:1.1rem}
-
-/* ===== EASTER EGG ===== */
-.easter-egg{
-  position:absolute;bottom:8px;right:8px;width:40px;height:40px;
-  border-radius:50%;overflow:hidden;opacity:0;
-  transition:opacity .5s ease;cursor:pointer;
-  box-shadow:0 2px 8px rgba(0,0,0,.3);
-}
-.easter-egg.visible{opacity:1;animation:peekIn .6s ease}
-.easter-egg img{width:100%;height:100%;object-fit:cover}
-@keyframes peekIn{
-  0%{transform:translateY(100%) scale(.5);opacity:0}
-  60%{transform:translateY(-10%) scale(1.1);opacity:1}
-  100%{transform:translateY(0) scale(1);opacity:1}
-}
-.egg-tooltip{
-  position:fixed;bottom:100px;left:50%;transform:translateX(-50%);
-  background:var(--blue-deep);color:var(--white);padding:12px 20px;
-  border-radius:12px;font-size:13px;font-weight:500;z-index:999;
-  opacity:0;pointer-events:none;transition:all .3s ease;max-width:280px;text-align:center;
-  box-shadow:0 8px 30px rgba(0,0,0,.25);
-}
-.egg-tooltip.show{opacity:1}
 
 /* ===== FOOTER ===== */
 .footer{text-align:center;padding:30px 20px 40px;font-size:12px;color:var(--text-muted)}
-.footer .heart{color:#e74c3c}
 
-/* ===== RESPONSIVE ===== */
 @media(min-width:640px){
   .content{padding:0 24px}
   .hero{min-height:460px}
   .card,.expand-toggle{padding:20px}
+  .photo-banner{height:220px}
 }
 </style>
 </head>
@@ -503,7 +393,7 @@ body{
   <div class="hero-content">
     <div class="hero-label">Roteiro de Viagem</div>
     <h1><em>Mallorca</em></h1>
-    <p class="hero-sub">4 noites de casal pelo mediterr&acirc;neo</p>
+    <p class="hero-sub">Explos&atilde;o antiga na Espanha e um ninja atirando em outro ninja</p>
     <div class="hero-dates">&#9992;&#65039; 4&ndash;8 junho 2026</div>
     <div class="countdown" id="countdown">
       <div class="cd-block"><div class="cd-num" id="cdDays">--</div><div class="cd-label">dias</div></div>
@@ -530,7 +420,6 @@ body{
 </nav>
 
 <main class="content">
-<div class="pages-container">
 
 <!-- ===================== DIA 1 ===================== -->
 <section class="page active" id="dia1">
@@ -543,28 +432,51 @@ body{
   <!-- ROUTE MAP -->
   <div class="route-map">
     <h3>&#128205; Rota da Viagem</h3>
-    <svg class="route-svg" viewBox="0 0 440 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Island shape -->
-      <path d="M80 140 Q100 60 200 50 Q300 40 380 80 Q420 100 400 140 Q380 180 300 190 Q200 200 120 180 Q80 170 80 140Z" fill="#d6eaf8" stroke="#2980b9" stroke-width="1.5" opacity=".4"/>
-      <!-- Route line -->
-      <path d="M320 155 L250 160 L190 110 L200 80 L300 75" stroke="#c9952b" stroke-width="2.5" stroke-dasharray="6 4" fill="none"/>
-      <!-- Dots -->
-      <circle cx="320" cy="155" r="7" fill="#1a5276"/><text x="320" y="175" text-anchor="middle" font-size="9" fill="#2c3e50" font-family="DM Sans" font-weight="600">Cala d'Or</text>
-      <text x="320" y="185" text-anchor="middle" font-size="7" fill="#95a5a6" font-family="DM Sans">D1-D2</text>
-      <circle cx="250" cy="160" r="5" fill="#2980b9"/><text x="250" y="180" text-anchor="middle" font-size="8" fill="#5d6d7e" font-family="DM Sans">Gran Folies</text>
-      <circle cx="190" cy="110" r="7" fill="#1a5276"/><text x="190" y="100" text-anchor="middle" font-size="9" fill="#2c3e50" font-family="DM Sans" font-weight="600">Palma</text>
-      <text x="190" y="90" text-anchor="middle" font-size="7" fill="#95a5a6" font-family="DM Sans">D3</text>
-      <circle cx="200" cy="80" r="5" fill="#2980b9"/><text x="215" y="70" text-anchor="start" font-size="8" fill="#5d6d7e" font-family="DM Sans">Valldemossa</text>
-      <circle cx="300" cy="75" r="7" fill="#1a5276"/><text x="300" y="65" text-anchor="middle" font-size="9" fill="#2c3e50" font-family="DM Sans" font-weight="600">Pollen&ccedil;a</text>
-      <text x="300" y="55" text-anchor="middle" font-size="7" fill="#95a5a6" font-family="DM Sans">D4-D5</text>
-      <!-- Airport -->
-      <circle cx="220" cy="135" r="5" fill="#e74c3c"/><text x="235" y="138" font-size="8" fill="#e74c3c" font-family="DM Sans" font-weight="600">PMI &#9992;</text>
-      <!-- Arrow on route -->
-      <polygon points="302,76 296,72 296,80" fill="#c9952b"/>
+    <svg class="route-svg" viewBox="0 0 500 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Realistic Mallorca outline -->
+      <path d="M95,235 Q85,210 78,185 Q70,155 85,130 Q95,115 110,100 Q130,80 155,65 Q175,55 200,50 Q220,47 245,45 Q270,42 295,40 Q320,38 340,42 Q355,45 370,55 Q385,62 395,72 Q410,85 418,100 Q425,115 428,135 Q430,155 425,175 Q418,195 410,210 Q400,228 385,240 Q370,252 355,260 Q340,268 320,275 Q300,280 280,283 Q260,286 240,287 Q220,288 200,286 Q180,284 160,278 Q140,272 125,262 Q110,252 100,242 Z" fill="#e8f4f8" stroke="#b0d4e8" stroke-width="1.5"/>
+      <!-- Tramuntana mountains -->
+      <path d="M100,130 Q120,95 155,70 Q180,58 210,52" stroke="#a8c5b8" stroke-width="8" stroke-linecap="round" opacity=".25" fill="none"/>
+      <!-- Route: Cala d'Or → Gran Folies → Palma → Valldemossa → Pollença -->
+      <path d="M380,248 C340,260 280,270 230,255 Q190,245 155,230" stroke="var(--gold)" stroke-width="3" stroke-dasharray="8 5" fill="none" opacity=".7"/>
+      <path d="M155,230 Q140,210 130,185 Q125,165 130,145" stroke="var(--gold)" stroke-width="3" stroke-dasharray="8 5" fill="none" opacity=".7"/>
+      <path d="M130,145 Q140,120 160,100 Q190,80 220,72 Q270,58 320,58 Q350,60 370,72" stroke="var(--gold)" stroke-width="3" stroke-dasharray="8 5" fill="none" opacity=".7"/>
+      <!-- Animated route dots -->
+      <circle r="3" fill="var(--gold)" opacity=".6"><animateMotion dur="6s" repeatCount="indefinite" path="M380,248 C340,260 280,270 230,255 Q190,245 155,230 Q140,210 130,185 Q125,165 130,145 Q140,120 160,100 Q190,80 220,72 Q270,58 320,58 Q350,60 370,72"/></circle>
+      <!-- PMI Airport -->
+      <circle cx="240" cy="260" r="6" fill="#e74c3c" opacity=".9"/>
+      <text x="240" y="280" text-anchor="middle" font-size="9" fill="#e74c3c" font-family="DM Sans,sans-serif" font-weight="700">PMI &#9992;</text>
+      <!-- Stop 1: Cala d'Or -->
+      <circle cx="380" cy="248" r="9" fill="var(--blue)" stroke="var(--white)" stroke-width="2.5"/>
+      <text x="380" y="238" text-anchor="middle" font-size="10" fill="var(--blue)" font-family="DM Sans,sans-serif" font-weight="700">Cala d'Or</text>
+      <text x="380" y="228" text-anchor="middle" font-size="8" fill="var(--gold)" font-family="DM Sans,sans-serif" font-weight="600">D1&ndash;D2</text>
+      <!-- Stop 2: Gran Folies -->
+      <circle cx="155" cy="230" r="6" fill="var(--blue-light)"/>
+      <text x="142" y="245" text-anchor="middle" font-size="8" fill="var(--text-light)" font-family="DM Sans,sans-serif">Gran Folies</text>
+      <!-- Stop 3: Palma -->
+      <circle cx="130" cy="185" r="9" fill="var(--blue)" stroke="var(--white)" stroke-width="2.5"/>
+      <text x="108" y="185" text-anchor="end" font-size="10" fill="var(--blue)" font-family="DM Sans,sans-serif" font-weight="700">Palma</text>
+      <text x="108" y="196" text-anchor="end" font-size="8" fill="var(--gold)" font-family="DM Sans,sans-serif" font-weight="600">D3</text>
+      <!-- Stop 4: Valldemossa -->
+      <circle cx="130" cy="145" r="6" fill="var(--blue-light)"/>
+      <text x="108" y="143" text-anchor="end" font-size="8" fill="var(--text-light)" font-family="DM Sans,sans-serif">Valldemossa</text>
+      <!-- Stop 5: Port de Pollença -->
+      <circle cx="370" cy="72" r="9" fill="var(--blue)" stroke="var(--white)" stroke-width="2.5"/>
+      <text x="370" y="62" text-anchor="middle" font-size="10" fill="var(--blue)" font-family="DM Sans,sans-serif" font-weight="700">Pollen&ccedil;a</text>
+      <text x="370" y="52" text-anchor="middle" font-size="8" fill="var(--gold)" font-family="DM Sans,sans-serif" font-weight="600">D4&ndash;D5</text>
+      <!-- Formentor -->
+      <circle cx="395" cy="48" r="4" fill="var(--gold)" opacity=".7"/>
+      <text x="410" y="45" font-size="7" fill="var(--text-muted)" font-family="DM Sans,sans-serif">Formentor</text>
+      <!-- Legend -->
+      <rect x="15" y="310" width="120" height="38" rx="8" fill="var(--white)" stroke="var(--sand-dark)" stroke-width="1"/>
+      <circle cx="30" cy="322" r="4" fill="var(--blue)"/><text x="40" y="326" font-size="8" fill="var(--text-light)" font-family="DM Sans,sans-serif">Pernoite</text>
+      <line x1="24" y1="338" x2="36" y2="338" stroke="var(--gold)" stroke-width="2" stroke-dasharray="4 3"/><text x="40" y="342" font-size="8" fill="var(--text-light)" font-family="DM Sans,sans-serif">Rota</text>
     </svg>
   </div>
 
   <div class="section-label">Essencial</div>
+
+  <img class="photo-banner" src="https://images.unsplash.com/photo-1616690002498-eb3d0e8b5b90?w=800&q=80" alt="Cala d'Or marina" loading="lazy">
 
   <div class="card">
     <div class="card-row">
@@ -610,7 +522,10 @@ body{
   </div>
   <div class="expand-content">
     <div class="expand-inner">
-      <div class="opt-card"><h4>&#127754; Cala Gran</h4><p>7 min a p&eacute;. A cala mais bonita de Cala d'Or. Turquesa entre penhascos.</p></div>
+      <div class="opt-card">
+        <img class="opt-card-img" src="https://images.unsplash.com/photo-1601283136158-73c42160547c?w=500&q=75" alt="Cala turquesa" loading="lazy">
+        <h4>&#127754; Cala Gran</h4><p>7 min a p&eacute;. A cala mais bonita de Cala d'Or. Turquesa entre penhascos.</p>
+      </div>
       <div class="opt-card"><h4>&#128142; Cala Esmeralda</h4><p>10 min. Peixes, snorkel, vista linda.</p></div>
       <div class="opt-card"><h4>&#127754; Cala Petita</h4><p>5 min a p&eacute;. Enseada pequena pra mergulho r&aacute;pido.</p></div>
       <div class="opt-card"><h4>&#127961;&#65039; Centro de Cala d'Or</h4><p>Estilo ibicenco, casinhas brancas. Sorveterias e bares.</p></div>
@@ -627,6 +542,8 @@ body{
   </div>
 
   <div class="section-label">Essencial</div>
+
+  <img class="photo-banner" src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80" alt="Sailing in turquoise water" loading="lazy">
 
   <div class="card">
     <div class="card-row">
@@ -709,7 +626,10 @@ body{
   </div>
   <div class="expand-content">
     <div class="expand-inner">
-      <div class="opt-card"><h4>&#127961;&#65039; Cala Figuera</h4><p>Vila de pescadores em forma de Y, casas brancas nos penhascos. 15 min de carro. Caf&eacute; e p&ocirc;r do sol.</p></div>
+      <div class="opt-card">
+        <img class="opt-card-img" src="https://images.unsplash.com/photo-1600240644455-3edc55c375fe?w=500&q=75" alt="Cala Figuera" loading="lazy">
+        <h4>&#127961;&#65039; Cala Figuera</h4><p>Vila de pescadores em forma de Y, casas brancas nos penhascos. 15 min de carro. Caf&eacute; e p&ocirc;r do sol.</p>
+      </div>
       <div class="opt-card"><h4>&#127965; Cal&oacute; des Moro</h4><p>20 min carro + 20 min trilha. Chegar 8h. Sem estrutura. Alternativa ao barco, n&atilde;o os dois.</p></div>
     </div>
   </div>
@@ -730,6 +650,8 @@ body{
 
   <div class="section-label">Essencial</div>
 
+  <img class="photo-banner" src="https://images.unsplash.com/photo-1568730745718-e0dd8cbfce68?w=800&q=80" alt="Beach club infinity pool" loading="lazy">
+
   <div class="card">
     <div class="card-row">
       <div class="card-emoji">&#127865;</div>
@@ -742,13 +664,16 @@ body{
     </div>
   </div>
 
-  <div class="card">
-    <div class="card-row">
-      <div class="card-emoji">&#9962;</div>
-      <div class="card-body">
-        <div class="card-title">Palma &mdash; Catedral + La Lonja</div>
-        <div class="card-desc">30 min do Gran Folies. Check-in hotel. Catedral ~17h30, luz perfeita. Bairro La Lonja &mdash; ruas medievais. <strong>Sky Bar El Lloren&ccedil;</strong> (rooftop com vista da catedral).<br>
-        <a class="card-link secondary" href="https://www.booking.com/hotel/es/brondo-architect.html" target="_blank">Check-in Brondo &rarr;</a></div>
+  <div class="card card-with-img">
+    <img class="card-img" src="https://images.unsplash.com/photo-1577538928035-c30e13c20b8b?w=600&q=75" alt="Palma de Mallorca Cathedral" loading="lazy">
+    <div class="card-inner">
+      <div class="card-row">
+        <div class="card-emoji">&#9962;</div>
+        <div class="card-body">
+          <div class="card-title">Palma &mdash; Catedral + La Lonja</div>
+          <div class="card-desc">30 min do Gran Folies. Check-in hotel. Catedral ~17h30, luz perfeita. Bairro La Lonja &mdash; ruas medievais. <strong>Sky Bar El Lloren&ccedil;</strong> (rooftop com vista da catedral).<br>
+          <a class="card-link secondary" href="https://www.booking.com/hotel/es/brondo-architect.html" target="_blank">Check-in Brondo &rarr;</a></div>
+        </div>
       </div>
     </div>
   </div>
@@ -807,12 +732,15 @@ body{
 
   <div class="section-label">Essencial</div>
 
-  <div class="card">
-    <div class="card-row">
-      <div class="card-emoji">&#127960;&#65039;</div>
-      <div class="card-body">
-        <div class="card-title">Valldemossa <span class="card-tag">No caminho</span></div>
-        <div class="card-desc">20 min de Palma. Vila medieval na Serra de Tramuntana (UNESCO). Ruas de pedra, persianas verdes. Mosteiro onde <strong>Chopin e George Sand</strong> moraram no inverno de 1838. Caf&eacute; com ensaimada na <strong>Ca'n Molinas</strong>. Passeiem 1h.</div>
+  <div class="card card-with-img">
+    <img class="card-img" src="https://images.unsplash.com/photo-1600255821058-64f15b14caa3?w=600&q=75" alt="Valldemossa stone streets" loading="lazy">
+    <div class="card-inner">
+      <div class="card-row">
+        <div class="card-emoji">&#127960;&#65039;</div>
+        <div class="card-body">
+          <div class="card-title">Valldemossa <span class="card-tag">No caminho</span></div>
+          <div class="card-desc">20 min de Palma. Vila medieval na Serra de Tramuntana (UNESCO). Ruas de pedra, persianas verdes. Mosteiro onde <strong>Chopin e George Sand</strong> moraram no inverno de 1838. Caf&eacute; com ensaimada na <strong>Ca'n Molinas</strong>. Passeiem 1h.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -827,7 +755,9 @@ body{
     </div>
   </div>
 
-  <div class="card" style="position:relative">
+  <img class="photo-banner" src="https://images.unsplash.com/photo-1586500893228-504661e73298?w=800&q=80" alt="Formentor beach" loading="lazy">
+
+  <div class="card">
     <div class="card-row">
       <div class="card-emoji">&#127958;&#65039;</div>
       <div class="card-body">
@@ -835,9 +765,6 @@ body{
         <div class="card-desc">25 min de carro. A praia mais bonita do norte. &Aacute;gua quente e transparente entre pinheiros. &Agrave; tarde mais vazia. Fiquem at&eacute; o p&ocirc;r do sol.<br>
         <span style="font-size:12px;color:var(--gold);font-weight:500">&#9888;&#65039; Em junho pode ter restri&ccedil;&atilde;o de carro &mdash; &ocirc;nibus de Port de Pollen&ccedil;a se necess&aacute;rio.</span></div>
       </div>
-    </div>
-    <div class="easter-egg" id="terryEgg" onclick="showEggTooltip()">
-      <img src="https://images.unsplash.com/photo-1611432579699-484f7990b127?w=80&h=80&fit=crop&crop=face" alt="" loading="lazy">
     </div>
   </div>
 
@@ -863,7 +790,10 @@ body{
   </div>
   <div class="expand-content">
     <div class="expand-inner">
-      <div class="opt-card"><h4>&#127748; Mirador Es Colomer</h4><p>Mirante nos penhascos de Formentor, no caminho. 10 min parada. Fotos de 200m de queda pro mar.</p></div>
+      <div class="opt-card">
+        <img class="opt-card-img" src="https://images.unsplash.com/photo-1591970175608-2f6e48edb41e?w=500&q=75" alt="Mirador Es Colomer" loading="lazy">
+        <h4>&#127748; Mirador Es Colomer</h4><p>Mirante nos penhascos de Formentor, no caminho. 10 min parada. Fotos de 200m de queda pro mar.</p>
+      </div>
       <div class="opt-card"><h4>&#127912; Dei&agrave;</h4><p>Vila de artistas, 10 min depois de Valldemossa. Linda, mas 2 vilas pode ser correria.</p></div>
       <div class="opt-card"><h4>&#127754; Cala Sant Vicen&ccedil;</h4><p>4 calas turquesa entre montanhas, 15 min. Alternativa se Formentor estiver lotada.</p></div>
       <div class="opt-card"><h4>&#127961;&#65039; Pollen&ccedil;a</h4><p>Cidade medieval, 10 min. Pra&ccedil;a bonita, 365 degraus com vista panor&acirc;mica.</p></div>
@@ -880,6 +810,8 @@ body{
   </div>
 
   <div class="section-label">Essencial</div>
+
+  <img class="photo-banner" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" alt="Morning beach" loading="lazy">
 
   <div class="card">
     <div class="card-row">
@@ -914,11 +846,13 @@ body{
     <div class="expand-inner">
       <div class="opt-card"><h4>&#127754; Cala Sant Vicen&ccedil;</h4><p>15 min. 4 calas turquesa entre montanhas. &Uacute;ltima praia.</p></div>
       <div class="opt-card"><h4>&#129406; Cala B&oacute;quer</h4><p>45 min trilha. Cala selvagem, quase sem gente.</p></div>
-      <div class="opt-card"><h4>&#127961;&#65039; Alc&uacute;dia</h4><p>Cidade murada romana. 20 min, no caminho do aeroporto.</p></div>
+      <div class="opt-card">
+        <img class="opt-card-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=500&q=75" alt="Walled town" loading="lazy">
+        <h4>&#127961;&#65039; Alc&uacute;dia</h4><p>Cidade murada romana. 20 min, no caminho do aeroporto.</p>
+      </div>
     </div>
   </div>
 
-  <!-- PACKING LIST -->
   <div class="section-label">O que levar</div>
 
   <div class="expand-toggle" onclick="toggleExpand(this)">
@@ -951,7 +885,6 @@ body{
     <div class="day-title">Hot&eacute;is</div>
   </div>
 
-  <!-- WEATHER -->
   <div class="weather-bar">
     <div class="weather-icon">&#9728;&#65039;</div>
     <div class="weather-info">
@@ -965,7 +898,7 @@ body{
   <div class="hotel-nights">2 noites &mdash; 4 a 6 de junho</div>
 
   <div class="hotel-card primary">
-    <img class="hotel-img" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=300&fit=crop" alt="Hotel pool" loading="lazy">
+    <img class="hotel-img" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&h=340&fit=crop" alt="Boutique hotel pool" loading="lazy">
     <div class="hotel-body">
       <div class="hotel-badge">&#11088; 1&ordf; Op&ccedil;&atilde;o</div>
       <div class="hotel-name">Eques Petit Resort</div>
@@ -985,14 +918,12 @@ body{
   </div>
 
   <div class="hotel-card alt">
-    <img class="hotel-img" src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600&h=300&fit=crop" alt="Beach resort" loading="lazy">
+    <img class="hotel-img" src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600&h=340&fit=crop" alt="Beach resort pool" loading="lazy">
     <div class="hotel-body">
       <div class="hotel-badge">Alternativa</div>
       <div class="hotel-name">Inturotel Cala Esmeralda</div>
       <div class="hotel-stars">&#9733;&#9733;&#9733;&#9733; Adults Only</div>
-      <div class="hotel-ratings">
-        <span class="hotel-rating high">Booking 9.4/10</span>
-      </div>
+      <div class="hotel-ratings"><span class="hotel-rating high">Booking 9.4/10</span></div>
       <div class="hotel-detail">Frente ao mar, 3 piscinas, spa, beach club.</div>
       <div class="hotel-price">&euro;180&ndash;250 / noite</div>
       <div class="hotel-links">
@@ -1006,7 +937,7 @@ body{
   <div class="hotel-nights">1 noite &mdash; 6 de junho (sexta)</div>
 
   <div class="hotel-card primary">
-    <img class="hotel-img" src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600&h=300&fit=crop" alt="Boutique hotel" loading="lazy">
+    <img class="hotel-img" src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600&h=340&fit=crop" alt="Modern boutique hotel" loading="lazy">
     <div class="hotel-body">
       <div class="hotel-badge">&#11088; 1&ordf; Op&ccedil;&atilde;o</div>
       <div class="hotel-name">Brondo Architect Hotel</div>
@@ -1020,7 +951,7 @@ body{
   </div>
 
   <div class="hotel-card alt">
-    <img class="hotel-img" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=300&fit=crop" alt="Hotel rooftop" loading="lazy">
+    <img class="hotel-img" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=340&fit=crop" alt="Hotel with pool" loading="lazy">
     <div class="hotel-body">
       <div class="hotel-badge">Alternativa</div>
       <div class="hotel-name">Boutique Hotel Cort</div>
@@ -1037,7 +968,7 @@ body{
   <div class="hotel-nights">1 noite &mdash; 7 de junho</div>
 
   <div class="hotel-card primary">
-    <img class="hotel-img" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&h=300&fit=crop" alt="Seaside hotel" loading="lazy">
+    <img class="hotel-img" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&h=340&fit=crop" alt="Seaside hotel" loading="lazy">
     <div class="hotel-body">
       <div class="hotel-badge">&#11088; 1&ordf; Op&ccedil;&atilde;o</div>
       <div class="hotel-name">La Goleta Hotel de Mar</div>
@@ -1055,7 +986,6 @@ body{
     </div>
   </div>
 
-  <!-- BUDGET -->
   <div class="section-label">Or&ccedil;amento estimado</div>
 
   <div class="budget-card">
@@ -1090,7 +1020,6 @@ body{
     <div class="budget-note">Passagens R$7.300/pessoa &bull; Gastos locais ~&euro;1.260&ndash;2.080 (&times;6.3 &cong; R$8.000&ndash;13.000)</div>
   </div>
 
-  <!-- TIPS -->
   <div class="section-label">Dicas</div>
 
   <div class="tip-card"><div class="tip-icon">&#128663;</div><div class="tip-text">Carro compacto &mdash; estradas estreitas nas calas e na Tramuntana.</div></div>
@@ -1149,168 +1078,106 @@ body{
   </div>
 </section>
 
-</div><!-- /pages-container -->
 </main>
 
-<footer class="footer">
-  Mallorca 2026 <span class="heart">&hearts;</span> Boa viagem!
-</footer>
+<footer class="footer">Mallorca 2026</footer>
 
-<!-- CONFETTI CONTAINER -->
 <div class="confetti-container" id="confettiContainer"></div>
 
-<!-- EASTER EGG TOOLTIP -->
-<div class="egg-tooltip" id="eggTooltip">&#128170; Terry Crews aprova essa praia. Agora v&atilde;o l&aacute; e aproveitem!</div>
-
 <script>
-// ===== COUNTDOWN =====
-function updateCountdown() {
-  const target = new Date('2026-06-04T14:00:00+02:00').getTime();
-  const now = Date.now();
-  const diff = target - now;
-  if (diff <= 0) {
-    document.getElementById('countdown').innerHTML = '<div class="cd-block"><div class="cd-num" style="font-size:1rem">Boa viagem! &#9992;&#65039;</div></div>';
-    return;
-  }
-  const d = Math.floor(diff / 86400000);
-  const h = Math.floor((diff % 86400000) / 3600000);
-  const m = Math.floor((diff % 3600000) / 60000);
-  const s = Math.floor((diff % 60000) / 1000);
-  document.getElementById('cdDays').textContent = d;
-  document.getElementById('cdHours').textContent = h;
-  document.getElementById('cdMins').textContent = String(m).padStart(2,'0');
-  document.getElementById('cdSecs').textContent = String(s).padStart(2,'0');
+// COUNTDOWN
+function updateCountdown(){
+  const t=new Date('2026-06-04T14:00:00+02:00').getTime(),n=Date.now(),d=t-n;
+  if(d<=0){document.getElementById('countdown').innerHTML='<div class="cd-block"><div class="cd-num" style="font-size:1rem">A viagem comecou!</div></div>';return}
+  document.getElementById('cdDays').textContent=Math.floor(d/864e5);
+  document.getElementById('cdHours').textContent=Math.floor(d%864e5/36e5);
+  document.getElementById('cdMins').textContent=String(Math.floor(d%36e5/6e4)).padStart(2,'0');
+  document.getElementById('cdSecs').textContent=String(Math.floor(d%6e4/1e3)).padStart(2,'0');
 }
-updateCountdown();
-setInterval(updateCountdown, 1000);
+updateCountdown();setInterval(updateCountdown,1000);
 
-// ===== PARALLAX =====
-window.addEventListener('scroll', () => {
-  const bg = document.getElementById('heroBg');
-  if (bg) bg.style.transform = 'scale(1.1) translateY(' + (window.scrollY * 0.3) + 'px)';
-}, {passive: true});
+// PARALLAX
+window.addEventListener('scroll',()=>{
+  const bg=document.getElementById('heroBg');
+  if(bg)bg.style.transform='scale(1.1) translateY('+window.scrollY*.3+'px)';
+},{passive:true});
 
-// ===== TAB NAVIGATION =====
-const tabs = document.querySelectorAll('.nav-tab');
-const pages = document.querySelectorAll('.page');
-let currentIdx = 0;
-
-function switchTab(newIdx, direction) {
-  const tabList = Array.from(tabs);
-  tabList.forEach(t => t.classList.remove('active'));
-  pages.forEach(p => { p.classList.remove('active','slide-left','slide-right'); });
-
-  tabList[newIdx].classList.add('active');
-  const target = document.getElementById(tabList[newIdx].dataset.tab);
-  target.classList.add('active');
-
-  if (direction === 'left') target.classList.add('slide-left');
-  else if (direction === 'right') target.classList.add('slide-right');
-
-  tabList[newIdx].scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
-  window.scrollTo({top: 0, behavior: 'smooth'});
-  currentIdx = newIdx;
-
-  // Easter egg: show Terry on Dia 4
-  if (tabList[newIdx].dataset.tab === 'dia4') {
-    setTimeout(() => {
-      const egg = document.getElementById('terryEgg');
-      if (egg) egg.classList.add('visible');
-    }, 2000);
-  }
+// TABS
+const tabs=document.querySelectorAll('.nav-tab'),pages=document.querySelectorAll('.page');
+let currentIdx=0;
+function switchTab(i,dir){
+  tabs.forEach(t=>t.classList.remove('active'));
+  pages.forEach(p=>{p.classList.remove('active','slide-left','slide-right')});
+  tabs[i].classList.add('active');
+  const tgt=document.getElementById(tabs[i].dataset.tab);
+  tgt.classList.add('active');
+  if(dir==='left')tgt.classList.add('slide-left');
+  else if(dir==='right')tgt.classList.add('slide-right');
+  tabs[i].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});
+  window.scrollTo({top:0,behavior:'smooth'});
+  currentIdx=i;
 }
+tabs.forEach((tab,i)=>tab.addEventListener('click',()=>{
+  switchTab(i,i>currentIdx?'left':i<currentIdx?'right':null);
+}));
 
-tabs.forEach((tab, i) => {
-  tab.addEventListener('click', () => {
-    const dir = i > currentIdx ? 'left' : i < currentIdx ? 'right' : null;
-    switchTab(i, dir);
-  });
-});
+// SWIPE
+let touchX=0;
+document.addEventListener('touchstart',e=>{touchX=e.changedTouches[0].screenX},{passive:true});
+document.addEventListener('touchend',e=>{
+  const d=touchX-e.changedTouches[0].screenX;
+  if(Math.abs(d)<60)return;
+  if(d>0&&currentIdx<tabs.length-1)switchTab(currentIdx+1,'left');
+  else if(d<0&&currentIdx>0)switchTab(currentIdx-1,'right');
+},{passive:true});
 
-// ===== SWIPE =====
-let touchStartX = 0;
-document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, {passive:true});
-document.addEventListener('touchend', e => {
-  const diff = touchStartX - e.changedTouches[0].screenX;
-  if (Math.abs(diff) < 60) return;
-  if (diff > 0 && currentIdx < tabs.length - 1) switchTab(currentIdx + 1, 'left');
-  else if (diff < 0 && currentIdx > 0) switchTab(currentIdx - 1, 'right');
-}, {passive:true});
+// EXPAND
+function toggleExpand(el){el.classList.toggle('open');el.nextElementSibling.classList.toggle('open')}
 
-// ===== EXPANDABLE =====
-function toggleExpand(el) {
-  const content = el.nextElementSibling;
-  el.classList.toggle('open');
-  content.classList.toggle('open');
-}
-
-// ===== CONFETTI =====
-function spawnConfetti(x, y) {
-  const container = document.getElementById('confettiContainer');
-  const colors = ['#c9952b','#2980b9','#27ae60','#e74c3c','#8e44ad','#f39c12'];
-  for (let i = 0; i < 20; i++) {
-    const piece = document.createElement('div');
-    piece.className = 'confetti-piece';
-    piece.style.left = (x + (Math.random() - 0.5) * 80) + 'px';
-    piece.style.top = (y - 10) + 'px';
-    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-    piece.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
-    piece.style.animationDelay = (Math.random() * 0.2) + 's';
-    piece.style.animationDuration = (0.8 + Math.random() * 0.6) + 's';
-    container.appendChild(piece);
-    setTimeout(() => piece.remove(), 1500);
+// CONFETTI
+function spawnConfetti(x,y){
+  const c=document.getElementById('confettiContainer'),
+  cols=['#c9952b','#2980b9','#27ae60','#e74c3c','#8e44ad','#f39c12'];
+  for(let i=0;i<20;i++){
+    const p=document.createElement('div');p.className='confetti-piece';
+    p.style.left=(x+(Math.random()-.5)*80)+'px';
+    p.style.top=(y-10)+'px';
+    p.style.background=cols[Math.floor(Math.random()*cols.length)];
+    p.style.transform='rotate('+Math.random()*360+'deg)';
+    p.style.animationDelay=Math.random()*.2+'s';
+    p.style.animationDuration=(.8+Math.random()*.6)+'s';
+    c.appendChild(p);setTimeout(()=>p.remove(),1500);
   }
 }
 
-// ===== CHECKLIST =====
-function toggleCheck(el) {
-  const wasChecked = el.classList.contains('checked');
+// CHECKLIST
+function toggleCheck(el){
+  const was=el.classList.contains('checked');
   el.classList.toggle('checked');
-  const key = el.dataset.key;
-  try { localStorage.setItem('mallorca_' + key, el.classList.contains('checked') ? '1' : '0'); } catch(e) {}
+  try{localStorage.setItem('mallorca_'+el.dataset.key,el.classList.contains('checked')?'1':'0')}catch(e){}
   updateProgress();
-
-  // Confetti on check (not uncheck)
-  if (!wasChecked) {
-    const rect = el.getBoundingClientRect();
-    spawnConfetti(rect.left + 20, rect.top + rect.height / 2);
-  }
+  if(!was){const r=el.getBoundingClientRect();spawnConfetti(r.left+20,r.top+r.height/2)}
 }
-
-function updateProgress() {
-  const items = document.querySelectorAll('.check-item');
-  const checked = document.querySelectorAll('.check-item.checked').length;
-  const total = items.length;
-  const pct = Math.round((checked / total) * 100);
-  document.getElementById('progressBar').style.width = pct + '%';
-  document.getElementById('progressText').textContent = checked + ' de ' + total;
+function updateProgress(){
+  const all=document.querySelectorAll('.check-item'),
+  done=document.querySelectorAll('.check-item.checked').length,
+  pct=Math.round(done/all.length*100);
+  document.getElementById('progressBar').style.width=pct+'%';
+  document.getElementById('progressText').textContent=done+' de '+all.length;
 }
-
-// Restore checklist
-document.querySelectorAll('.check-item').forEach(el => {
-  try { if (localStorage.getItem('mallorca_' + el.dataset.key) === '1') el.classList.add('checked'); } catch(e) {}
+document.querySelectorAll('.check-item').forEach(el=>{
+  try{if(localStorage.getItem('mallorca_'+el.dataset.key)==='1')el.classList.add('checked')}catch(e){}
 });
 updateProgress();
 
-// ===== SHARE =====
-function shareLink() {
-  const url = window.location.href;
-  if (navigator.share) {
-    navigator.share({title:'Mallorca 2026', text:'Nosso roteiro de Mallorca!', url: url});
-  } else {
-    navigator.clipboard.writeText(url).then(() => {
-      const toast = document.getElementById('shareToast');
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2500);
-    });
-  }
-}
-
-// ===== EASTER EGG =====
-function showEggTooltip() {
-  const tip = document.getElementById('eggTooltip');
-  tip.classList.add('show');
-  setTimeout(() => tip.classList.remove('show'), 3000);
+// SHARE
+function shareLink(){
+  const u=window.location.href;
+  if(navigator.share)navigator.share({title:'Mallorca 2026',text:'Nosso roteiro de Mallorca!',url:u});
+  else navigator.clipboard.writeText(u).then(()=>{
+    const t=document.getElementById('shareToast');t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),2500);
+  });
 }
 </script>
 </body>
