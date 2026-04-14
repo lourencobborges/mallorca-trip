@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mallorca 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#1a5276;--blue-light:#2980b9;--blue-pale:#d6eaf8;
+  --gold:#c9952b;--gold-light:#f4e4b8;
+  --sand:#faf6f0;--sand-dark:#f0e8da;
+  --text:#2c3e50;--text-light:#5d6d7e;--text-muted:#95a5a6;
+  --white:#ffffff;--card:#ffffff;
+  --radius:16px;--radius-sm:10px;
+  --shadow:0 2px 20px rgba(0,0,0,.06);
+  --shadow-lg:0 8px 40px rgba(0,0,0,.1);
+  --transition:all .3s cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'DM Sans',system-ui,sans-serif;
+  background:var(--sand);color:var(--text);
+  line-height:1.6;overflow-x:hidden;
+  padding-bottom:env(safe-area-inset-bottom,0);
+}
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,#0c2d48 0%,#1a5276 40%,#2980b9 100%);
+  color:var(--white);padding:60px 20px 30px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-50%;right:-30%;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,149,43,.15) 0%,transparent 70%);
+}
+.hero-label{
+  font-family:'DM Sans';font-size:11px;font-weight:600;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:12px;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;font-size:clamp(2.2rem,6vw,3.2rem);
+  font-weight:700;line-height:1.15;margin-bottom:8px;
+}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.7);font-weight:300}
+.hero-dates{
+  display:inline-flex;align-items:center;gap:8px;
+  margin-top:16px;padding:8px 18px;
+  background:rgba(255,255,255,.1);border-radius:30px;
+  font-size:13px;font-weight:500;backdrop-filter:blur(10px);
+}
+
+/* NAV TABS */
+.nav-wrap{
+  position:sticky;top:0;z-index:100;
+  background:var(--white);
+  border-bottom:1px solid rgba(0,0,0,.06);
+  box-shadow:0 2px 12px rgba(0,0,0,.04);
+}
+.nav-tabs{
+  display:flex;overflow-x:auto;scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+  max-width:600px;margin:0 auto;
+}
+.nav-tabs::-webkit-scrollbar{display:none}
+.nav-tab{
+  flex:0 0 auto;padding:14px 16px;font-size:13px;font-weight:500;
+  color:var(--text-light);cursor:pointer;white-space:nowrap;
+  border-bottom:2.5px solid transparent;
+  transition:var(--transition);position:relative;
+  background:none;border-top:none;border-left:none;border-right:none;
+  font-family:inherit;
+}
+.nav-tab.active{color:var(--blue);border-bottom-color:var(--blue);font-weight:600}
+.nav-tab .tab-emoji{margin-right:4px}
+
+/* CONTENT */
+.content{max-width:600px;margin:0 auto;padding:0 16px}
+.page{display:none;padding:20px 0 40px;animation:fadeUp .35s ease}
+.page.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* DAY HEADER */
+.day-header{margin-bottom:20px}
+.day-num{
+  font-family:'DM Sans';font-size:11px;font-weight:600;
+  letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:4px;
+}
+.day-title{
+  font-family:'Playfair Display',serif;font-size:1.65rem;
+  font-weight:700;color:var(--blue);line-height:1.2;margin-bottom:4px;
+}
+.day-meta{font-size:13px;color:var(--text-muted);font-weight:400}
+.day-meta .dorme{
+  display:inline-flex;align-items:center;gap:4px;
+  background:var(--blue-pale);color:var(--blue);
+  padding:3px 10px;border-radius:20px;font-weight:500;font-size:12px;
+  margin-left:4px;
+}
+
+/* SECTION LABEL */
+.section-label{
+  font-size:11px;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;color:var(--text-muted);
+  margin:24px 0 12px;display:flex;align-items:center;gap:8px;
+}
+.section-label::after{
+  content:'';flex:1;height:1px;background:var(--sand-dark);
+}
+
+/* CARDS */
+.card{
+  background:var(--card);border-radius:var(--radius);
+  padding:16px;margin-bottom:10px;
+  box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);
+  transition:var(--transition);
+}
+.card:active{transform:scale(.985)}
+.card-row{display:flex;gap:12px;align-items:flex-start}
+.card-emoji{
+  font-size:1.4rem;width:40px;height:40px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--sand);border-radius:12px;flex-shrink:0;
+}
+.card-body{flex:1;min-width:0}
+.card-title{font-weight:600;font-size:15px;color:var(--text);margin-bottom:2px}
+.card-tag{
+  display:inline-block;font-size:10px;font-weight:600;
+  letter-spacing:.5px;text-transform:uppercase;
+  background:var(--gold-light);color:var(--gold);
+  padding:2px 8px;border-radius:6px;margin-left:6px;
+  vertical-align:middle;
+}
+.card-desc{font-size:13.5px;color:var(--text-light);line-height:1.55}
+.card-desc a{color:var(--blue-light);text-decoration:none;font-weight:500}
+.card-desc a:hover{text-decoration:underline}
+
+/* EXPANDABLE */
+.expand-toggle{
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--card);border-radius:var(--radius);
+  padding:16px;margin-bottom:10px;cursor:pointer;
+  box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);
+  transition:var(--transition);
+  -webkit-tap-highlight-color:transparent;
+}
+.expand-toggle:active{transform:scale(.985)}
+.expand-left{display:flex;align-items:center;gap:12px}
+.expand-icon{
+  font-size:1.4rem;width:40px;height:40px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--sand);border-radius:12px;flex-shrink:0;
+}
+.expand-title{font-weight:600;font-size:15px;color:var(--text)}
+.expand-sub{font-size:12px;color:var(--text-muted);font-weight:400}
+.expand-arrow{
+  font-size:18px;color:var(--text-muted);transition:transform .3s ease;
+  flex-shrink:0;
+}
+.expand-toggle.open .expand-arrow{transform:rotate(180deg)}
+.expand-content{
+  max-height:0;overflow:hidden;transition:max-height .4s ease;
+}
+.expand-content.open{max-height:2000px}
+.expand-inner{padding:0 16px 16px}
+
+.expand-inner .opt-card{
+  background:var(--sand);border-radius:var(--radius-sm);
+  padding:14px;margin-bottom:8px;
+}
+.opt-card h4{font-size:14px;font-weight:600;color:var(--text);margin-bottom:4px}
+.opt-card p{font-size:13px;color:var(--text-light);line-height:1.5}
+.opt-card a{color:var(--blue-light);text-decoration:none;font-weight:500}
+
+/* TRANSFER BANNER */
+.transfer{
+  background:linear-gradient(135deg,var(--blue) 0%,var(--blue-light) 100%);
+  color:var(--white);border-radius:var(--radius);
+  padding:16px;margin-top:20px;
+  display:flex;align-items:center;gap:12px;
+}
+.transfer-icon{font-size:1.3rem}
+.transfer-text{font-size:13px;font-weight:400;line-height:1.5}
+.transfer-text strong{font-weight:600}
+
+/* HOTEL CARDS */
+.hotel-card{
+  background:var(--card);border-radius:var(--radius);
+  padding:20px;margin-bottom:14px;
+  box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);
+  position:relative;overflow:hidden;
+}
+.hotel-card.primary{border-left:4px solid var(--gold)}
+.hotel-card.alt{border-left:4px solid var(--text-muted)}
+.hotel-badge{
+  font-size:10px;font-weight:600;letter-spacing:1px;
+  text-transform:uppercase;margin-bottom:8px;
+  display:inline-block;
+}
+.hotel-card.primary .hotel-badge{color:var(--gold)}
+.hotel-card.alt .hotel-badge{color:var(--text-muted)}
+.hotel-name{
+  font-family:'Playfair Display',serif;font-size:1.15rem;
+  font-weight:700;color:var(--blue);margin-bottom:2px;
+}
+.hotel-stars{color:var(--gold);font-size:13px;margin-bottom:8px}
+.hotel-detail{font-size:13px;color:var(--text-light);margin-bottom:4px;line-height:1.5}
+.hotel-price{
+  font-size:15px;font-weight:600;color:var(--text);margin:10px 0;
+}
+.hotel-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.hotel-link{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:8px 16px;border-radius:8px;font-size:12px;font-weight:600;
+  text-decoration:none;transition:var(--transition);
+}
+.hotel-link.primary-link{background:var(--blue);color:var(--white)}
+.hotel-link.secondary-link{background:var(--sand);color:var(--text)}
+.hotel-link:active{transform:scale(.96)}
+
+.hotel-location{
+  font-family:'Playfair Display',serif;font-size:1.1rem;
+  color:var(--text);font-weight:600;margin:28px 0 4px;
+  display:flex;align-items:center;gap:8px;
+}
+.hotel-location:first-child{margin-top:0}
+.hotel-nights{font-size:12px;color:var(--text-muted);margin-bottom:14px;font-family:'DM Sans'}
+
+/* CHECKLIST */
+.check-item{
+  display:flex;align-items:center;gap:12px;
+  background:var(--card);border-radius:var(--radius-sm);
+  padding:14px 16px;margin-bottom:8px;
+  box-shadow:var(--shadow);border:1px solid rgba(0,0,0,.04);
+  cursor:pointer;transition:var(--transition);
+  -webkit-tap-highlight-color:transparent;
+}
+.check-item:active{transform:scale(.985)}
+.check-box{
+  width:22px;height:22px;border-radius:7px;
+  border:2px solid var(--blue-pale);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  transition:var(--transition);
+}
+.check-item.checked .check-box{
+  background:var(--blue);border-color:var(--blue);
+}
+.check-box svg{
+  width:14px;height:14px;opacity:0;transition:var(--transition);
+}
+.check-item.checked .check-box svg{opacity:1}
+.check-label{font-size:14px;font-weight:500;color:var(--text);flex:1}
+.check-item.checked .check-label{
+  color:var(--text-muted);text-decoration:line-through;
+}
+.check-link{
+  font-size:12px;color:var(--blue-light);text-decoration:none;
+  font-weight:500;flex-shrink:0;
+}
+
+/* BUDGET */
+.budget-card{
+  background:var(--card);border-radius:var(--radius);
+  padding:20px;margin-bottom:14px;box-shadow:var(--shadow);
+  border:1px solid rgba(0,0,0,.04);
+}
+.budget-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:8px 0;font-size:14px;
+}
+.budget-row:not(:last-child){border-bottom:1px solid var(--sand-dark)}
+.budget-label{color:var(--text-light);display:flex;align-items:center;gap:8px}
+.budget-value{font-weight:600;color:var(--text)}
+.budget-total{
+  margin-top:12px;padding-top:12px;border-top:2px solid var(--sand-dark);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.budget-total .budget-label{font-weight:600;color:var(--text);font-size:15px}
+.budget-total .budget-value{
+  font-size:17px;font-weight:700;color:var(--blue);
+}
+.budget-note{
+  font-size:12px;color:var(--text-muted);margin-top:10px;
+  text-align:center;font-style:italic;
+}
+
+/* TIPS */
+.tip-card{
+  display:flex;gap:12px;align-items:flex-start;
+  background:var(--card);border-radius:var(--radius-sm);
+  padding:14px;margin-bottom:8px;
+  box-shadow:0 1px 6px rgba(0,0,0,.04);
+}
+.tip-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+.tip-text{font-size:13.5px;color:var(--text-light);line-height:1.5}
+
+/* PROGRESS BAR */
+.check-progress{
+  background:var(--sand-dark);border-radius:20px;height:6px;
+  margin-bottom:20px;overflow:hidden;
+}
+.check-progress-bar{
+  height:100%;background:linear-gradient(90deg,var(--blue),var(--blue-light));
+  border-radius:20px;transition:width .4s ease;
+}
+.check-progress-text{
+  font-size:12px;color:var(--text-muted);margin-bottom:8px;
+  text-align:right;font-weight:500;
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;padding:30px 20px 40px;
+  font-size:12px;color:var(--text-muted);
+}
+.footer .heart{color:#e74c3c}
+
+/* SPECIAL NIGHT SECTION */
+.night-section{
+  background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);
+  border-radius:var(--radius);padding:20px;margin-bottom:10px;
+  color:var(--white);
+}
+.night-section h3{
+  font-family:'Playfair Display',serif;font-size:1.1rem;
+  color:var(--gold);margin-bottom:14px;
+  display:flex;align-items:center;gap:8px;
+}
+.night-opt{
+  background:rgba(255,255,255,.08);border-radius:var(--radius-sm);
+  padding:12px;margin-bottom:8px;backdrop-filter:blur(5px);
+}
+.night-opt h4{font-size:14px;font-weight:600;margin-bottom:3px}
+.night-opt p{font-size:13px;color:rgba(255,255,255,.7);line-height:1.5}
+.night-opt a{color:var(--gold);text-decoration:none;font-weight:500}
+
+/* Responsive tweaks */
+@media(min-width:640px){
+  .content{padding:0 24px}
+  .hero{padding:80px 24px 40px}
+  .card,.expand-toggle{padding:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-label">Roteiro de Viagem</div>
+  <h1><em>Mallorca</em></h1>
+  <p class="hero-sub">4 noites de casal pelo mediterr&acirc;neo</p>
+  <div class="hero-dates">
+    <span>&#9992;&#65039;</span>
+    <span>4&ndash;8 junho 2026</span>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav-wrap">
+  <div class="nav-tabs" id="navTabs">
+    <button class="nav-tab active" data-tab="dia1"><span class="tab-emoji">&#9728;&#65039;</span>Dia 1</button>
+    <button class="nav-tab" data-tab="dia2"><span class="tab-emoji">&#9973;</span>Dia 2</button>
+    <button class="nav-tab" data-tab="dia3"><span class="tab-emoji">&#127863;</span>Dia 3</button>
+    <button class="nav-tab" data-tab="dia4"><span class="tab-emoji">&#9968;&#65039;</span>Dia 4</button>
+    <button class="nav-tab" data-tab="dia5"><span class="tab-emoji">&#9992;&#65039;</span>Dia 5</button>
+    <button class="nav-tab" data-tab="hoteis"><span class="tab-emoji">&#127976;</span>Hot&eacute;is</button>
+    <button class="nav-tab" data-tab="checklist"><span class="tab-emoji">&#9989;</span>Reservas</button>
+  </div>
+</nav>
+
+<main class="content">
+
+<!-- ========== DIA 1 ========== -->
+<section class="page active" id="dia1">
+  <div class="day-header">
+    <div class="day-num">Dia 1 &mdash; Quarta, 4 Jun</div>
+    <div class="day-title">Chegada &amp; Cala d'Or</div>
+    <div class="day-meta">Dorme em <span class="dorme">&#127769; Cala d'Or</span></div>
+  </div>
+
+  <div class="section-label">Essencial</div>
+
+  <div class="card">
+    <div class="card-row">
+      <div class="card-emoji">&#9992;&#65039;</div>
+      <div class="card-body">
+        <div class="card-title">PMI &rarr; Cala d'Or</div>
+        <div class="card-desc">Chegam 14h. Pegam carro, 50 min at&eacute; o hotel. Check-in ~15h30.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-row">
+      <div class="card-emoji">&#127946;</div>
+      <div class="card-body">
+        <div class="card-title">Hotel + Piscina</div>
+        <div class="card-desc">Tarde no hotel. Piscina, drink, sol. Sem planos &mdash; voc&ecirc;s merecem descansar depois de 14h de viagem.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-row">
+      <div class="card-emoji">&#127863;</div>
+      <div class="card-body">
+        <div class="card-title">Jantar na Marina</div>
+        <div class="card-desc">Marina de Cala d'Or, 10 min a p&eacute;. <strong>Port Petit</strong> (Michelin Guide) se quiserem algo especial.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Se sobrar energia</div>
+
+  <div class="expand-toggle" onclick="toggleExpand(this)">
+    <div class="expand-left">
+      <div class="expand-icon">&#127965;</div>
+      <div>
+        <div class="expand-title">Calas &amp; Centro</div>
+        <div class="expand-sub">4 op&ccedil;&otilde;es perto do hotel</div>
+      </div>
+    </div>
+    <div class="expand-arrow">&#9660;</div>
+  </div>
+  <div class="expand-content">
+    <div class="expand-inner">
+      <div class="opt-card">
+        <h4>&#127754; Cala Gran</h4>
+        <p>7 min a p&eacute;. A cala mais bonita de Cala d'Or. Turquesa entre penhascos.</p>
+      </div>
+      <div class="opt-card">
+        <h4>&#128142; Cala Esmeralda</h4>
+        <p>10 min. Peixes, snorkel, vista linda.</p>
+      </div>
+      <div class="opt-card">
+        <h4>&#127754; Cala Petita</h4>
+        <p>5 min a p&eacute;. Enseada pequena pra mergulho r&aacute;pido.</p>
+      </div>
+      <div class="opt-card">
+        <h4>&#127961;&#65039; Centro de Cala d'Or</h4>
+        <p>Estilo ibicenco, casinhas brancas. Sorveterias e bares.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== DIA 2 ========== -->
+<section class="page" id="dia2">
+  <div class="day-header">
+    <div class="day-num">Dia 2 &mdash; Quinta, 5 Jun</div>
+    <div class="day-title">Dia de Barco</div>
+    <div class="day-meta">Dorme em <span class="dorme">&#127769; Cala d'Or</span></div>
+  </div>
+
+  <div class="section-label">Essencial</div>
+
+  <div class="card">
+    <div class="card-row">
+      <div class="card-emoji">&#9973;</div>
+      <div class="card-body">
+        <div class="card-title">Dia inteiro de barco <span class="card-tag">Sa&iacute;da ~10h</span></div>
+        <div class="card-desc">Saem ~10h da Marina de Cala d'Or. Navegam pela costa, parando em calas acess&iacute;veis s&oacute; por mar &mdash; Cala Mitjana, Cala Sa Nau, Cala Mondrag&oacute;. Snorkel, SUP, mergulho. Almo&ccedil;o e drinks a bordo. Voltam ~17h&ndash;18h.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-row">
+      <div class="card-emoji">&#127751;</div>
+      <div class="card-body">
+        <div class="card-title">Noite Tranquila</div>
+        <div class="card-desc">Volta da marina, banho no hotel, jantar relaxado.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Op&ccedil;&otilde;es de barco</div>
+
+  <div class="expand-toggle" onclick="toggleExpand(this)">
+    <div class="expand-left">
+      <div class="expand-icon">&#128674;</div>
+      <div>
+        <div class="expand-title">3 Op&ccedil;&otilde;es de Barco</div>
+        <div class="expand-sub">Veleiro, sem licen&ccedil;a ou lancha</div>
+      </div>
+    </div>
+    <div class="expand-arrow">&#9660;</div>
+  </div>
+  <div class="expand-content">
+    <div class="expand-inner">
+      <div class="opt-card">
+        <h4>&#9973; Vita Bel &mdash; Veleiro cl&aacute;ssico</h4>
+        <p>16m com skipper. Open bar + almo&ccedil;o + SUP + snorkel. &euro;1.350 at&eacute; 10 pessoas (shared mais barato).<br><a href="https://vita-bel.com" target="_blank">vita-bel.com &rarr;</a></p>
+      </div>
+      <div class="opt-card">
+        <h4>&#128676; DOR Boats &mdash; Sem licen&ccedil;a</h4>
+        <p>Voc&ecirc;s pilotam! ~&euro;150&ndash;250/dia. Briefing de 10 min na marina.<br><a href="https://dorboats.com/en/" target="_blank">dorboats.com &rarr;</a></p>
+      </div>
+      <div class="opt-card">
+        <h4>&#128032; Hakuna Matata &mdash; Lancha</h4>
+        <p>Com skipper. Half ou full day. Podem ir at&eacute; Isla Cabrera.<br><a href="https://www.hakunamatata-boatcharter.com/" target="_blank">hakunamatata-boatcharter.com &rarr;</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Se sobrar tempo</div>
+
+  <div class="expand-toggle" onclick="toggleExpand(this)">
+    <div class="expand-left">
+      <div class="expand-icon">&#127748;</div>
+      <div>
+        <div class="expand-title">Extras pela costa</div>
+        <div class="expand-sub">Cala Figuera, Cal&oacute; des Moro</div>
+      </div>
+    </div>
+    <div class="expand-arrow">&#9660;</div>
+  </div>
+  <div class="expand-content">
+    <div class="expand-inner">
+      <div class="opt-card">
+        <h4>&#127961;&#65039; Cala Figuera</h4>
+        <p>Vila de pescadores em forma de Y, casas brancas nos penhascos. 15 min de carro. Caf&eacute; e p&ocirc;r do sol.</p>
+      </div>
+      <div class="opt-card">
+        <h4>&#127965; Cal&oacute; des Moro</h4>
+        <p>20 min carro + 20 min trilha. Chegar 8h. Sem estrutura. Alternativa ao barco, n&atilde;o os dois.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="transfer">
+    <div class="transfer-icon">&#128663;</div>
+    <div class="transfer-text"><strong>Amanh&atilde;:</strong> Check-out &rarr; Gran Folies (1h10) &rarr; Palma (30 min)</div>
+  </div>
+</section>
+
+<!-- ========== DIA 3 ========== -->
+<section class="page" id="dia3">
+  <div class="day-header">
+    <div class="day-num">Dia 3 &mdash; Sexta, 6 Jun</div>
+    <div class="day-title">Beach Club + Palma</div>
+    <div class="day-meta">Dorme em <span class="dorme">&#127769; Palma</span></div>
+  </div>
+
+  <div class="section-label">Essencial</div>
+
+  <div class="card">
+    <div class="card-row">
+      <div class="card-emoji">&#127865;</div>
+      <div class="card-body">
+        <div class="card-title">Gran Folies Beach Club <span class="card-tag">Reserve!</span></div>
+        <div class="card-desc">Saiam ~10h de Cala d'Or. Chegam ~11h15. Piscina nas rochas da Cala Llamp, DJ, gastronomia top, Bali beds. Almocem l&aacute;. Fiquem at&eacute; ~16h30. O beach club mais exclusivo de Mallorca.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-row">
+      <div class="card-emoji">&#9962;</div>
+      <div class="card-body">
+        <div class="card-title">Palma &mdash; Catedral + La Lonja</div>
+        <div class="card-desc">30 min do Gran Folies. Check-in hotel. Catedral ~17h30, luz perfeita. Bairro La Lonja &mdash; ruas medievais. <strong>Sky Bar El Lloren&ccedil;</strong> (rooftop com vista da catedral).</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Noite em Palma</div>
+
+  <div class="night-section">
+    <h3>&#10024; Sexta &agrave; noite em Palma</h3>
+    <div class="night-opt">
+      <h4>&#127860; Jantar: Santa Catalina</h4>
+      <p>Bairro mais vivo. Tapas e coquetéis, vibe local.</p>
+    </div>
+    <div class="night-opt">
+      <h4>&#127775; Festa chique: L&iacute;o Mallorca</h4>
+      <p>Jantar + cabaret + clube. Ou Passeig Mar&iacute;tim. Nada de Magaluf.<br><a href="https://www.liomallorca.com" target="_blank">liomallorca.com &rarr;</a></p>
+    </div>
+    <div class="night-opt">
+      <h4>&#127864; Mais tranquilo</h4>
+      <p>Abaco (bar em pal&aacute;cio s&eacute;c. XVII) ou rooftop Nakar Hotel.</p>
+    </div>
+    <div class="night-opt">
+      <h4>&#128674; Puerto Portals</h4>
+      <p>Marina de luxo, 15 min de t&aacute;xi. Drinks vendo iates.</p>
+    </div>
+  </div>
+
+  <div class="section-label">Se sobrar tempo</div>
+
+  <div class="expand-toggle" onclick="toggleExpand(this)">
+    <div class="expand-left">
+      <div class="expand-icon">&#127964;&#65039;</div>
+      <div>
+        <div class="expand-title">Paradas extras</div>
+        <div class="expand-sub">Portals Vells, Puerto Portals</div>
+      </div>
+    </div>
+    <div class="expand-arrow">&#9660;</div>
+  </div>
+  <div class="expand-content">
+    <div class="expand-inner">
+      <div class="opt-card">
+        <h4>&#128300; Portals Vells</h4>
+        <p>10 min antes do Gran Folies. 3 calas + caverna do s&eacute;c. XV esculpida por marinheiros genoveses. 40 min de parada.</p>
+      </div>
+      <div class="opt-card">
+        <h4>&#128674; Puerto Portals</h4>
+        <p>Marina de luxo, 15 min de t&aacute;xi de Palma. Drinks vendo iates.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="transfer">
+    <div class="transfer-icon">&#128663;</div>
+    <div class="transfer-text"><strong>Amanh&atilde;:</strong> Palma &rarr; Valldemossa (20 min) &rarr; Tramuntana &rarr; Port de Pollen&ccedil;a</div>
+  </div>
+</section>
+
+<!-- ========== DIA 4 ========== -->
+<section class="page" id="dia4">
+  <div class="day-header">
+    <div class="day-num">Dia 4 &mdash; S&aacute;bado, 7 Jun</div>
+    <div class="day-title">Montanha + Formentor</div>
+    <div class="day-meta">Dorme em <span class="dorme">&#127769; Port de Pollen&ccedil;a</span></div>
+  </div>
+
+  <div class="section-label">Essencial</div>
+
+  <div class="card">
+    <div class="card-row">
+      <div class="card-emoji">&#127960;&#65039;</div>
+      <div class="card-body">
+        <div class="card-title">Valldemossa <span class="card-tag">No caminho</span></div>
+        <div class="card-desc">20 min de Palma. Vila medieval na Serra de Tramuntana (UNESCO). Ruas de pedra, persianas verdes, mosteiro onde Chopin morou. Caf&eacute; com ensaimada na <strong>Ca'n Molinas</strong>. Passeiem 1h.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-row">
+      <div class="card-emoji">&#128663;</div>
+      <div class="card-body">
+        <div class="card-title">Estrada da Tramuntana</div>
+        <div class="card-desc">Ma-10, a estrada mais bonita de Mallorca. Curvas, penhascos, oliveiras, mar l&aacute; embaixo. 50 min at&eacute; Port de Pollen&ccedil;a.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-row">
+      <div class="card-emoji">&#127958;&#65039;</div>
+      <div class="card-body">
+        <div class="card-title">Cala Formentor <span class="card-tag">Tarde</span></div>
+        <div class="card-desc">25 min de carro. A praia mais bonita do norte. &Aacute;gua quente e transparente entre pinheiros. &Agrave; tarde mais vazia. Fiquem at&eacute; o p&ocirc;r do sol.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-row">
+      <div class="card-emoji">&#127864;</div>
+      <div class="card-body">
+        <div class="card-title">Pine Walk &mdash; Jantar</div>
+        <div class="card-desc">Cal&ccedil;ad&atilde;o beira-mar de Port de Pollen&ccedil;a. Restaurantes, bares, montanhas ao fundo.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Se sobrar tempo</div>
+
+  <div class="expand-toggle" onclick="toggleExpand(this)">
+    <div class="expand-left">
+      <div class="expand-icon">&#127748;</div>
+      <div>
+        <div class="expand-title">Mirantes, vilas &amp; calas</div>
+        <div class="expand-sub">4 paradas opcionais</div>
+      </div>
+    </div>
+    <div class="expand-arrow">&#9660;</div>
+  </div>
+  <div class="expand-content">
+    <div class="expand-inner">
+      <div class="opt-card">
+        <h4>&#127748; Mirador Es Colomer</h4>
+        <p>Mirante nos penhascos de Formentor, no caminho. 10 min parada. Fotos de 200m de queda pro mar.</p>
+      </div>
+      <div class="opt-card">
+        <h4>&#127912; Dei&agrave;</h4>
+        <p>Vila de artistas, 10 min depois de Valldemossa. Linda, mas 2 vilas pode ser correria.</p>
+      </div>
+      <div class="opt-card">
+        <h4>&#127754; Cala Sant Vicen&ccedil;</h4>
+        <p>4 calas turquesa entre montanhas, 15 min. Alternativa se Formentor estiver lotada.</p>
+      </div>
+      <div class="opt-card">
+        <h4>&#127961;&#65039; Pollen&ccedil;a</h4>
+        <p>Cidade medieval, 10 min. Pra&ccedil;a bonita, 365 degraus com vista panor&acirc;mica.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== DIA 5 ========== -->
+<section class="page" id="dia5">
+  <div class="day-header">
+    <div class="day-num">Dia 5 &mdash; Domingo, 8 Jun</div>
+    <div class="day-title">Manh&atilde; livre + Volta</div>
+    <div class="day-meta">Dorme em <span class="dorme">&#9992;&#65039; Voo</span></div>
+  </div>
+
+  <div class="section-label">Essencial</div>
+
+  <div class="card">
+    <div class="card-row">
+      <div class="card-emoji">&#9728;&#65039;</div>
+      <div class="card-body">
+        <div class="card-title">Manh&atilde; em Port de Pollen&ccedil;a</div>
+        <div class="card-desc">Caf&eacute; com calma. Praia. &Uacute;ltimo mergulho.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-row">
+      <div class="card-emoji">&#9992;&#65039;</div>
+      <div class="card-body">
+        <div class="card-title">PMI &rarr; Casa</div>
+        <div class="card-desc">50 min at&eacute; o aeroporto. Devolvam o carro com folga.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Se sobrar tempo</div>
+
+  <div class="expand-toggle" onclick="toggleExpand(this)">
+    <div class="expand-left">
+      <div class="expand-icon">&#127965;</div>
+      <div>
+        <div class="expand-title">&Uacute;ltimas paradas</div>
+        <div class="expand-sub">Calas e Alc&uacute;dia</div>
+      </div>
+    </div>
+    <div class="expand-arrow">&#9660;</div>
+  </div>
+  <div class="expand-content">
+    <div class="expand-inner">
+      <div class="opt-card">
+        <h4>&#127754; Cala Sant Vicen&ccedil;</h4>
+        <p>15 min. 4 calas turquesa entre montanhas. &Uacute;ltima praia.</p>
+      </div>
+      <div class="opt-card">
+        <h4>&#129406; Cala B&oacute;quer</h4>
+        <p>45 min trilha. Cala selvagem, quase sem gente.</p>
+      </div>
+      <div class="opt-card">
+        <h4>&#127961;&#65039; Alc&uacute;dia</h4>
+        <p>Cidade murada romana. 20 min, no caminho do aeroporto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== HOTÉIS ========== -->
+<section class="page" id="hoteis">
+  <div class="day-header">
+    <div class="day-num">Acomoda&ccedil;&atilde;o</div>
+    <div class="day-title">Hot&eacute;is</div>
+  </div>
+
+  <div class="hotel-location">&#127965; Cala d'Or</div>
+  <div class="hotel-nights">2 noites &mdash; 4 a 6 de junho</div>
+
+  <div class="hotel-card primary">
+    <div class="hotel-badge">&#11088; 1&ordf; Op&ccedil;&atilde;o</div>
+    <div class="hotel-name">Eques Petit Resort</div>
+    <div class="hotel-stars">&#9733;&#9733;&#9733;&#9733;</div>
+    <div class="hotel-detail">Nota 4.9. Boho-chic, piscina, spa. 5 min da marina.</div>
+    <div class="hotel-price">&euro;100&ndash;150 / noite</div>
+    <div class="hotel-links">
+      <a class="hotel-link primary-link" href="https://www.equespetitresort.com/en/" target="_blank">Site oficial</a>
+      <a class="hotel-link secondary-link" href="https://www.booking.com/hotel/es/eques-petit-resort-cala-d-39-or.html" target="_blank">Booking</a>
+    </div>
+  </div>
+
+  <div class="hotel-card alt">
+    <div class="hotel-badge">Alternativa</div>
+    <div class="hotel-name">Inturotel Cala Esmeralda</div>
+    <div class="hotel-stars">&#9733;&#9733;&#9733;&#9733; Adults Only</div>
+    <div class="hotel-detail">Nota 9.4. Frente ao mar, 3 piscinas, spa, beach club.</div>
+    <div class="hotel-price">&euro;180&ndash;250 / noite</div>
+    <div class="hotel-links">
+      <a class="hotel-link primary-link" href="https://www.inturotel.com/en/hotels/inturotel-cala-esmeralda/" target="_blank">Site oficial</a>
+      <a class="hotel-link secondary-link" href="https://www.booking.com/hotel/es/inturotel-cala-esmeralda.html" target="_blank">Booking</a>
+    </div>
+  </div>
+
+  <div class="hotel-location">&#127961;&#65039; Palma</div>
+  <div class="hotel-nights">1 noite &mdash; 6 de junho (sexta)</div>
+
+  <div class="hotel-card primary">
+    <div class="hotel-badge">&#11088; 1&ordf; Op&ccedil;&atilde;o</div>
+    <div class="hotel-name">Brondo Architect Hotel</div>
+    <div class="hotel-stars">&#9733;&#9733;&#9733;&#9733;</div>
+    <div class="hotel-detail">Boutique moderno, centro hist&oacute;rico. Rooftop. A p&eacute; de tudo.</div>
+    <div class="hotel-price">&euro;120&ndash;170 / noite</div>
+    <div class="hotel-links">
+      <a class="hotel-link primary-link" href="https://www.booking.com/hotel/es/brondo-architect.html" target="_blank">Booking</a>
+    </div>
+  </div>
+
+  <div class="hotel-card alt">
+    <div class="hotel-badge">Alternativa</div>
+    <div class="hotel-name">Boutique Hotel Cort</div>
+    <div class="hotel-stars">&#9733;&#9733;&#9733;&#9733;</div>
+    <div class="hotel-detail">Pla&ccedil;a de Cort. Rooftop com plunge pool.</div>
+    <div class="hotel-price">&euro;150&ndash;200 / noite</div>
+    <div class="hotel-links">
+      <a class="hotel-link primary-link" href="https://www.booking.com/hotel/es/cort.html" target="_blank">Booking</a>
+    </div>
+  </div>
+
+  <div class="hotel-location">&#9968;&#65039; Port de Pollen&ccedil;a</div>
+  <div class="hotel-nights">1 noite &mdash; 7 de junho</div>
+
+  <div class="hotel-card primary">
+    <div class="hotel-badge">&#11088; 1&ordf; Op&ccedil;&atilde;o</div>
+    <div class="hotel-name">La Goleta Hotel de Mar</div>
+    <div class="hotel-stars">&#9733;&#9733;&#9733;&#9733; Adults Only</div>
+    <div class="hotel-detail">Nota 9.2. Na praia, rooftop pool, caf&eacute; incluso. Pine Walk na porta.</div>
+    <div class="hotel-price">&euro;120&ndash;180 / noite</div>
+    <div class="hotel-links">
+      <a class="hotel-link primary-link" href="https://lagoletahoteldemar.com/" target="_blank">Site oficial</a>
+      <a class="hotel-link secondary-link" href="https://www.booking.com/hotel/es/la-goleta-de-mar-adults-only.html" target="_blank">Booking</a>
+    </div>
+  </div>
+
+  <!-- BUDGET -->
+  <div class="section-label">Or&ccedil;amento estimado</div>
+
+  <div class="budget-card">
+    <div class="budget-row">
+      <span class="budget-label">&#127976; Hot&eacute;is (4 noites)</span>
+      <span class="budget-value">&euro;450&ndash;650</span>
+    </div>
+    <div class="budget-row">
+      <span class="budget-label">&#128663; Carro (4 dias)</span>
+      <span class="budget-value">&euro;100&ndash;150</span>
+    </div>
+    <div class="budget-row">
+      <span class="budget-label">&#9973; Barco</span>
+      <span class="budget-value">&euro;150&ndash;400</span>
+    </div>
+    <div class="budget-row">
+      <span class="budget-label">&#127865; Gran Folies</span>
+      <span class="budget-value">&euro;60&ndash;80</span>
+    </div>
+    <div class="budget-row">
+      <span class="budget-label">&#127860; Alimenta&ccedil;&atilde;o + drinks</span>
+      <span class="budget-value">&euro;500&ndash;800</span>
+    </div>
+    <div class="budget-total">
+      <span class="budget-label">Total (casal)</span>
+      <span class="budget-value">&euro;1.300&ndash;2.100</span>
+    </div>
+    <div class="budget-note">~R$7.500&ndash;12.000 por pessoa com voo</div>
+  </div>
+
+  <!-- TIPS -->
+  <div class="section-label">Dicas</div>
+
+  <div class="tip-card">
+    <div class="tip-icon">&#128663;</div>
+    <div class="tip-text">Carro compacto &mdash; estradas estreitas nas calas e na Tramuntana.</div>
+  </div>
+  <div class="tip-card">
+    <div class="tip-icon">&#128293;</div>
+    <div class="tip-text">Gran Folies lota r&aacute;pido &mdash; reserve com anteced&ecirc;ncia.</div>
+  </div>
+  <div class="tip-card">
+    <div class="tip-icon">&#9888;&#65039;</div>
+    <div class="tip-text">Formentor em junho pode ter restri&ccedil;&atilde;o de carro &mdash; confirme.</div>
+  </div>
+  <div class="tip-card">
+    <div class="tip-icon">&#127775;</div>
+    <div class="tip-text">L&iacute;o Mallorca: reservem mesa pra sexta.</div>
+  </div>
+  <div class="tip-card">
+    <div class="tip-icon">&#128674;</div>
+    <div class="tip-text">Barco sem licen&ccedil;a: briefing de 10 min na marina, muito f&aacute;cil.</div>
+  </div>
+  <div class="tip-card">
+    <div class="tip-icon">&#127807;</div>
+    <div class="tip-text">Protetor reef-safe obrigat&oacute;rio em parques naturais.</div>
+  </div>
+  <div class="tip-card">
+    <div class="tip-icon">&#127964;&#65039;</div>
+    <div class="tip-text">Portals Vells fica 10 min antes do Gran Folies &mdash; parem pra ver a caverna.</div>
+  </div>
+</section>
+
+<!-- ========== CHECKLIST ========== -->
+<section class="page" id="checklist">
+  <div class="day-header">
+    <div class="day-num">Organiza&ccedil;&atilde;o</div>
+    <div class="day-title">Checklist de Reservas</div>
+  </div>
+
+  <div class="check-progress-text" id="progressText">0 de 7</div>
+  <div class="check-progress"><div class="check-progress-bar" id="progressBar" style="width:0%"></div></div>
+
+  <div class="check-item" onclick="toggleCheck(this)" data-key="c1">
+    <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <span class="check-label">Hotel Cala d'Or (2 noites)</span>
+    <a class="check-link" href="https://www.equespetitresort.com/en/" target="_blank" onclick="event.stopPropagation()">Reservar</a>
+  </div>
+
+  <div class="check-item" onclick="toggleCheck(this)" data-key="c2">
+    <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <span class="check-label">Hotel Palma (1 noite)</span>
+    <a class="check-link" href="https://www.booking.com/hotel/es/brondo-architect.html" target="_blank" onclick="event.stopPropagation()">Reservar</a>
+  </div>
+
+  <div class="check-item" onclick="toggleCheck(this)" data-key="c3">
+    <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <span class="check-label">Hotel Pollen&ccedil;a (1 noite)</span>
+    <a class="check-link" href="https://lagoletahoteldemar.com/" target="_blank" onclick="event.stopPropagation()">Reservar</a>
+  </div>
+
+  <div class="check-item" onclick="toggleCheck(this)" data-key="c4">
+    <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <span class="check-label">Barco dia 5 jun</span>
+    <a class="check-link" href="https://vita-bel.com" target="_blank" onclick="event.stopPropagation()">Reservar</a>
+  </div>
+
+  <div class="check-item" onclick="toggleCheck(this)" data-key="c5">
+    <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <span class="check-label">Gran Folies Beach Club</span>
+    <a class="check-link" href="https://beachclubgranfolies.com" target="_blank" onclick="event.stopPropagation()">Reservar</a>
+  </div>
+
+  <div class="check-item" onclick="toggleCheck(this)" data-key="c6">
+    <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <span class="check-label">L&iacute;o Mallorca (sexta)</span>
+    <a class="check-link" href="https://www.liomallorca.com" target="_blank" onclick="event.stopPropagation()">Reservar</a>
+  </div>
+
+  <div class="check-item" onclick="toggleCheck(this)" data-key="c7">
+    <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <span class="check-label">Carro alugado (compacto!)</span>
+    <a class="check-link" href="https://www.discovercars.com" target="_blank" onclick="event.stopPropagation()">Reservar</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  Mallorca 2026 <span class="heart">&hearts;</span> Boa viagem!
+</footer>
+
+<script>
+// TAB NAVIGATION
+const tabs = document.querySelectorAll('.nav-tab');
+const pages = document.querySelectorAll('.page');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.tab;
+    tabs.forEach(t => t.classList.remove('active'));
+    pages.forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(target).classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    // scroll tab into view
+    tab.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+  });
+});
+
+// EXPANDABLE SECTIONS
+function toggleExpand(el) {
+  const content = el.nextElementSibling;
+  el.classList.toggle('open');
+  content.classList.toggle('open');
+}
+
+// CHECKLIST
+function toggleCheck(el) {
+  el.classList.toggle('checked');
+  const key = el.dataset.key;
+  const checked = el.classList.contains('checked');
+  try { localStorage.setItem('mallorca_' + key, checked ? '1' : '0'); } catch(e) {}
+  updateProgress();
+}
+
+function updateProgress() {
+  const items = document.querySelectorAll('.check-item');
+  const checked = document.querySelectorAll('.check-item.checked').length;
+  const total = items.length;
+  const pct = Math.round((checked / total) * 100);
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('progressText').textContent = checked + ' de ' + total;
+}
+
+// Restore checklist state
+document.querySelectorAll('.check-item').forEach(el => {
+  const key = el.dataset.key;
+  try {
+    if (localStorage.getItem('mallorca_' + key) === '1') {
+      el.classList.add('checked');
+    }
+  } catch(e) {}
+});
+updateProgress();
+
+// Swipe navigation
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', e => {
+  touchStartX = e.changedTouches[0].screenX;
+}, {passive: true});
+
+document.addEventListener('touchend', e => {
+  touchEndX = e.changedTouches[0].screenX;
+  const diff = touchStartX - touchEndX;
+  if (Math.abs(diff) < 60) return;
+
+  const activeTab = document.querySelector('.nav-tab.active');
+  const tabList = Array.from(tabs);
+  const idx = tabList.indexOf(activeTab);
+
+  if (diff > 0 && idx < tabList.length - 1) {
+    tabList[idx + 1].click();
+  } else if (diff < 0 && idx > 0) {
+    tabList[idx - 1].click();
+  }
+}, {passive: true});
+</script>
+</body>
+</html>
