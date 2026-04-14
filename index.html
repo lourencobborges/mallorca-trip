@@ -148,6 +148,18 @@ img{display:block;width:100%;object-fit:cover}
   body{max-width:430px;margin:0 auto;border-left:1px solid var(--border);border-right:1px solid var(--border)}
   .bottom-nav{max-width:430px;left:50%;transform:translateX(-50%)}
 }
+
+/* LIGHTBOX */
+.lb-overlay{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.92);display:none;flex-direction:column;align-items:center;justify-content:center;padding:20px;animation:lbIn .25s ease}
+.lb-overlay.on{display:flex}
+@keyframes lbIn{from{opacity:0}to{opacity:1}}
+.lb-close{position:absolute;top:16px;right:16px;width:40px;height:40px;background:rgba(255,255,255,.15);border:none;border-radius:50%;color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10}
+.lb-close:active{transform:scale(.9)}
+.lb-img{max-width:100%;max-height:60vh;border-radius:14px;object-fit:cover;box-shadow:0 8px 40px rgba(0,0,0,.4)}
+.lb-title{color:#fff;font-size:18px;font-weight:800;margin-top:16px;text-align:center}
+.lb-desc{color:rgba(255,255,255,.7);font-size:13px;text-align:center;margin-top:6px;max-width:320px;line-height:1.5}
+.cala-card{cursor:pointer}
+.cala-card:active{transform:scale(.97)}
 </style>
 </head>
 <body>
@@ -243,36 +255,39 @@ img{display:block;width:100%;object-fit:cover}
       <h3 style="font-size:15px;font-weight:700;margin-bottom:12px">&#127965; Calas pra explorar a p&#233;</h3>
       <p style="font-size:12px;color:var(--muted);margin-bottom:14px">Todas a minutos do hotel. Ranking de prioridade:</p>
 
-      <div class="card" style="cursor:default;padding:0;overflow:hidden;margin-bottom:10px">
+      <div class="card cala-card" onclick="openLb('img/cove1.jpg','Cala Gran','7 min a p\u00e9 do hotel. A cala mais bonita de Cala d\u2019Or. \u00c1gua turquesa entre penhascos altos. Perfeita pro fim de tarde. Toque pra fechar.')" style="padding:0;overflow:hidden;margin-bottom:10px">
         <img src="img/cove1.jpg" alt="Cala Gran" style="height:140px">
         <div style="padding:14px">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
             <span style="background:var(--d1);color:#fff;font-size:11px;font-weight:800;padding:3px 10px;border-radius:12px">#1</span>
             <strong style="font-size:15px">Cala Gran</strong>
+            <span style="font-size:11px;color:var(--muted)">&#128248; toque pra ver</span>
           </div>
-          <p style="font-size:13px;color:var(--muted);line-height:1.5">7 min a p&#233;. A cala mais bonita de Cala d&#8217;Or. &#193;gua turquesa entre penhascos altos. Perfeita pro fim de tarde.</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.5">7 min a p&#233;. &#193;gua turquesa entre penhascos. Perfeita pro fim de tarde.</p>
         </div>
       </div>
 
-      <div class="card" style="cursor:default;padding:0;overflow:hidden;margin-bottom:10px">
+      <div class="card cala-card" onclick="openLb('img/snork2.jpg','Cala Esmeralda','10 min a p\u00e9. Peixes vis\u00edveis na \u00e1gua cristalina. A melhor pra snorkel de todas as calas a p\u00e9.')" style="padding:0;overflow:hidden;margin-bottom:10px">
         <img src="img/snork2.jpg" alt="Cala Esmeralda" style="height:140px">
         <div style="padding:14px">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
             <span style="background:var(--d2);color:#fff;font-size:11px;font-weight:800;padding:3px 10px;border-radius:12px">#2</span>
             <strong style="font-size:15px">Cala Esmeralda</strong>
+            <span style="font-size:11px;color:var(--muted)">&#128248; toque pra ver</span>
           </div>
-          <p style="font-size:13px;color:var(--muted);line-height:1.5">10 min a p&#233;. Peixes vis&#237;veis na &#225;gua. Melhor pra snorkel de todas as calas a p&#233;.</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.5">10 min a p&#233;. Melhor pra snorkel. Peixes vis&#237;veis.</p>
         </div>
       </div>
 
-      <div class="card" style="cursor:default;padding:0;overflow:hidden;margin-bottom:10px">
+      <div class="card cala-card" onclick="openLb('img/cala_mallorca.jpg','Cala Petita','5 min a p\u00e9. Enseada pequena e \u00edntima entre rochas. Mais vazia \u2014 bom pra mergulho r\u00e1pido a dois.')" style="padding:0;overflow:hidden;margin-bottom:10px">
         <img src="img/cala_mallorca.jpg" alt="Cala Petita" style="height:140px">
         <div style="padding:14px">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
             <span style="background:var(--d4);color:#fff;font-size:11px;font-weight:800;padding:3px 10px;border-radius:12px">#3</span>
             <strong style="font-size:15px">Cala Petita</strong>
+            <span style="font-size:11px;color:var(--muted)">&#128248; toque pra ver</span>
           </div>
-          <p style="font-size:13px;color:var(--muted);line-height:1.5">5 min a p&#233;. Enseada pequena entre rochas. Mais vazia e &#237;ntima &#8212; bom pra mergulho r&#225;pido.</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.5">5 min a p&#233;. Enseada &#237;ntima entre rochas. Mais vazia.</p>
         </div>
       </div>
     </div>
@@ -302,25 +317,27 @@ img{display:block;width:100%;object-fit:cover}
       <h3 style="font-size:15px;font-weight:700;margin-bottom:12px">&#127754; Calas do barco (ou carro)</h3>
       <p style="font-size:12px;color:var(--muted);margin-bottom:14px">Vocês passam por essas de barco. Se n&#227;o fizerem barco, d&#225; pra ir de carro + trilha:</p>
 
-      <div class="card" style="cursor:default;padding:0;overflow:hidden;margin-bottom:10px">
+      <div class="card cala-card" onclick="openLb('img/cove5.jpg','Cala Mondrag\u00f3','Parque natural protegido. \u00c1gua cristalina, snorkel incr\u00edvel. A mais bonita por barco. Tamb\u00e9m acess\u00edvel de carro (15 min de Cala d\u2019Or).')" style="padding:0;overflow:hidden;margin-bottom:10px">
         <img src="img/cove5.jpg" alt="Cala Mondragó" style="height:140px">
         <div style="padding:14px">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
             <span style="background:var(--d2);color:#fff;font-size:11px;font-weight:800;padding:3px 10px;border-radius:12px">#1</span>
             <strong style="font-size:15px">Cala Mondrag&#243;</strong>
+            <span style="font-size:11px;color:var(--muted)">&#128248;</span>
           </div>
-          <p style="font-size:13px;color:var(--muted);line-height:1.5">Parque natural protegido. &#193;gua cristalina, snorkel incr&#237;vel. A mais bonita por barco. Tamb&#233;m acess&#237;vel de carro (15 min).</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.5">Parque natural. &#193;gua cristalina, snorkel. Acess&#237;vel de carro (15 min).</p>
         </div>
       </div>
 
-      <div class="card" style="cursor:default;padding:0;overflow:hidden;margin-bottom:10px">
+      <div class="card cala-card" onclick="openLb('img/cliff_beach.jpg','Cal\u00f3 des Moro','A cala mais fotografada de Mallorca. Por terra: 20 min carro + 20 min trilha (chegar 8h). Sem estrutura nenhuma. Alternativa ao barco, n\u00e3o os dois.')" style="padding:0;overflow:hidden;margin-bottom:10px">
         <img src="img/cliff_beach.jpg" alt="Caló des Moro" style="height:140px">
         <div style="padding:14px">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
             <span style="background:var(--d4);color:#fff;font-size:11px;font-weight:800;padding:3px 10px;border-radius:12px">#2</span>
             <strong style="font-size:15px">Cal&#243; des Moro</strong>
+            <span style="font-size:11px;color:var(--muted)">&#128248;</span>
           </div>
-          <p style="font-size:13px;color:var(--muted);line-height:1.5">A cala mais fotografada de Mallorca. Por terra: 20 min carro + 20 min trilha (chegar 8h). Sem estrutura. Alternativa ao barco, n&#227;o os dois.</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.5">A mais fotografada de Mallorca. 20 min carro + 20 min trilha.</p>
         </div>
       </div>
 
@@ -368,7 +385,7 @@ img{display:block;width:100%;object-fit:cover}
 
   <!-- DAY 4 -->
   <div class="day-panel" id="day-4">
-    <div class="day-header"><img src="img/village2.jpg" alt="Valldemossa"><div class="day-header-txt"><span class="tag tag-d4">S&#225;b, 7 Jun</span><h2>Tramuntana &amp; Formentor</h2><p>Valldemossa &#8594; Ma-10 &#8594; Formentor</p></div></div>
+    <div class="day-header"><img src="img/valldemossa.jpg" alt="Valldemossa"><div class="day-header-txt"><span class="tag tag-d4">S&#225;b, 7 Jun</span><h2>Tramuntana &amp; Formentor</h2><p>Valldemossa &#8594; Ma-10 &#8594; Formentor</p></div></div>
     <div class="timeline">
       <div class="tl-item"><div class="tl-dot" style="background:var(--d4)"></div><div class="tl-line"><div class="tl-time">09:00</div><div class="tl-title">Check-out &amp; Valldemossa</div><div class="tl-desc">20 min de Palma. Vila UNESCO. Chopin &amp; George Sand passaram o inverno de 1838 aqui.</div></div></div>
       <div class="tl-item"><div class="tl-dot" style="background:var(--d4)"></div><div class="tl-line"><div class="tl-time">10:00</div><div class="tl-title">Ca&#8217;n Molinas &#129360;</div><div class="tl-desc">A melhor ensaimada de Mallorca. Tradicion&#237;ssima! N&#227;o pule.</div></div></div>
@@ -382,14 +399,15 @@ img{display:block;width:100%;object-fit:cover}
       <h3 style="font-size:15px;font-weight:700;margin-bottom:12px">&#127748; Extras no caminho</h3>
       <p style="font-size:12px;color:var(--muted);margin-bottom:14px">Paradas opcionais por prioridade:</p>
 
-      <div class="card" style="cursor:default;padding:0;overflow:hidden;margin-bottom:10px">
+      <div class="card cala-card" onclick="openLb('img/mt_road.jpg','Mirador Es Colomer','No caminho de Formentor. Parada de 10 min. Fotos de 200m de queda pro mar. Vista 360\u00b0. Imperd\u00edvel.')" style="padding:0;overflow:hidden;margin-bottom:10px">
         <img src="img/mt_road.jpg" alt="Mirador Es Colomer" style="height:130px">
         <div style="padding:14px">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
             <span style="background:var(--d4);color:#fff;font-size:11px;font-weight:800;padding:3px 10px;border-radius:12px">#1</span>
             <strong style="font-size:15px">Mirador Es Colomer</strong>
+            <span style="font-size:11px;color:var(--muted)">&#128248;</span>
           </div>
-          <p style="font-size:13px;color:var(--muted);line-height:1.5">No caminho de Formentor. 10 min parada. Fotos de 200m de queda pro mar. Imperd&#237;vel.</p>
+          <p style="font-size:13px;color:var(--muted);line-height:1.5">No caminho de Formentor. 10 min parada. 200m de queda pro mar. Imperd&#237;vel.</p>
         </div>
       </div>
 
@@ -639,7 +657,7 @@ var POIS = [
   { name:'Gran Folies', lat:39.534, lng:2.386, day:3, img:'img/terrace.jpg', desc:'Beach club \u2013 reservar!' },
   { name:'Catedral de Palma', lat:39.5673, lng:2.6489, day:3, img:'img/palma_cat.jpg', desc:'G\u00f3tica s\u00e9c. XIII' },
   { name:'Santa Catalina', lat:39.575, lng:2.642, day:3, img:'img/cocktail.jpg', desc:'Bairro noturno' },
-  { name:'Valldemossa', lat:39.7106, lng:2.6233, day:4, img:'img/village2.jpg', desc:'UNESCO \u2013 Chopin 1838' },
+  { name:'Valldemossa', lat:39.7106, lng:2.6233, day:4, img:'img/valldemossa.jpg', desc:'UNESCO \u2013 Chopin 1838' },
   { name:'Cala Formentor', lat:39.9333, lng:3.1333, day:4, img:'img/pine_beach.jpg', desc:'Praia + pinheiros' },
   { name:'Mirador Es Colomer', lat:39.955, lng:3.163, day:4, img:'img/mt_road.jpg', desc:'Vista 360\u00b0' },
   { name:'Port de Pollen\u00e7a', lat:39.9057, lng:3.0833, day:4, img:'img/pine_beach.jpg', desc:'Hotel + Pine Walk' },
@@ -764,6 +782,25 @@ checks.forEach(function(c) {
   });
 });
 updateProgress();
+
+// ====== LIGHTBOX ======
+var lbOverlay = document.createElement('div');
+lbOverlay.className = 'lb-overlay';
+lbOverlay.innerHTML = '<button class="lb-close" onclick="closeLb()">&times;</button><img class="lb-img" id="lb-img" src=""><div class="lb-title" id="lb-title"></div><div class="lb-desc" id="lb-desc"></div>';
+document.body.appendChild(lbOverlay);
+lbOverlay.addEventListener('click', function(e) { if (e.target === lbOverlay) closeLb(); });
+
+function openLb(img, title, desc) {
+  document.getElementById('lb-img').src = img;
+  document.getElementById('lb-title').textContent = title;
+  document.getElementById('lb-desc').textContent = desc;
+  lbOverlay.classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+function closeLb() {
+  lbOverlay.classList.remove('on');
+  document.body.style.overflow = '';
+}
 </script>
 </body>
 </html>
